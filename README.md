@@ -1,17 +1,11 @@
-<center>
-</font><font size="6"><br><b>Analysis of animal acoustic signals in
-R</b></font>
-</center>
-<br>
-
-================
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 <br>
 
 <center>
-<font size="5"><b><a href="https://boku.ac.at/en/lehrveranstaltungen/lva/296713">BOKU
+<font size="6"><b>Analysis of animal acoustic signals in R</b></font>
+</center><br>
+
+<center><font size="5"><b><a href="https://boku.ac.at/en/lehrveranstaltungen/lva/296713">BOKU
 International wildlife lectures</a><br></b></font>
 </center>
 
@@ -39,22 +33,14 @@ acoustic signals and associated biological questions. The course will
 introduce students on the basic concepts in animal acoustic signal
 research as well as hands-on experience on analytical tools in R.
 
+<div class="alert alert-info">
+
 ### Objetive
 
-Training biological science students and researchers in the detection
-and analysis of animal sounds in R. Specifically, it seeks to
-familiarize participants with computational tools in the R environment
-aiming at curating, detecting and analyzing animal acoustic signals,
-with an especial focus on quantifying fine-scale structural variation.
-The course will introduce the most relevant acoustics concepts to allow
-a detailed understanding of the metrics used for characterize acoustic
-signals. It will also guide participants through a variety of R packages
-for bioacoustics analysis, including seewave, tuneR, warbleR,
-PhenotypeSpace and baRulho.
+Training biological science students and researchers in the detection and analysis of animal sounds in R. Specifically, it seeks to familiarize participants with computational tools in the R environment aiming at curating, detecting and analyzing animal acoustic signals, with an especial focus on quantifying fine-scale structural variation. The course will introduce the most relevant acoustics concepts to allow a detailed understanding of the metrics used for characterize acoustic signals. It will also guide participants through a variety of R packages for bioacoustics analysis, including seewave, tuneR, warbleR and baRulho. 
 
-Download [this folder with example sound files and
-annotations](https://www.dropbox.com/sh/9b0ol3xw4nuqu7q/AAAojzPMZv09WUmq8ucM72x7a?dl=0)
-into your course project directory.
+</div>
+
 
 ------------------------------------------------------------------------
 
@@ -167,5 +153,3 @@ checks</a>
 -   Double-checking selection tables (`check_sels()`, `spectrograms()`,
     `full_spectrograms()` & `catalog()`)
 -   Re-adjusting selections (`tailor_sels()`)
-
- 
