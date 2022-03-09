@@ -1,9 +1,9 @@
-name: "my-website"
+name: "BOKU: Analysis of animal acoustic signals in R"
 output_dir: "docs"
 navbar:
-  title: "My Website"
+  title: "BOKU bioacoustics R 2022"
   left:
-    - text: "Home"
+    - text: "Tutorials"
       href: index.html
     - text: "About"
       href: about.html
