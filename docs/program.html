@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Program</title>
+
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">BOKU bioacoustics R 2022</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="program.html">Program</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="R_basics.html">R basics</a>
+    </li>
+    <li>
+      <a href="Sound_in_R.html">Sound</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Program</h1>
+
+</div>
+
+
+<div id="program" class="section level3">
+<h3>Program</h3>
+<p><font size="3.5"></p>
+<p><strong>General bioacoustics concepts</strong></p>
+<ul>
+<li>History and development</li>
+<li>Analytical workflow in bioacoustics research</li>
+</ul>
+<p><strong>Basic R concepts</strong> <a href="https://github.com/maRce10/BOKU_bioacoustics_2022/blob/master/tutorials/R-basics.html" class="btn btn-warning btn-xs" role="button">R basics</a></p>
+<ul>
+<li>Object types in R</li>
+<li>Subsetting</li>
+<li>Style matters</li>
+<li>R documentation</li>
+</ul>
+<p><strong>What is sound?</strong> <a href="https://www.dropbox.com/s/yw3vfa5olbocm8q/Sound_in_R.html?dl=0" class="btn btn-warning btn-xs" role="button">Sound</a></p>
+<ul>
+<li>Sound as a time series</li>
+<li>Sound as a digital object</li>
+<li>Acoustic data in R</li>
+<li>‘wave’ object structure</li>
+<li>‘wave’ object manipulations</li>
+<li>additional formats</li>
+</ul>
+<p><strong>Building spectrograms</strong> <a href="https://marceloarayasalas.weebly.com/uploads/2/5/5/2/25524573/spectrograms.html" class="btn btn-warning btn-xs" role="button">Building spectrograms</a></p>
+<ul>
+<li>Fourier transform</li>
+<li>Building a spectrogram</li>
+<li>Characteristics and limitations</li>
+<li>Spectrograms in R</li>
+</ul>
+<p><strong>Package seewave</strong> <a href="https://marceloarayasalas.weebly.com/uploads/2/5/5/2/25524573/seewave.html" class="btn btn-warning btn-xs" role="button">seewave</a></p>
+<ul>
+<li>Explore, modify and measure ‘wave’ objects</li>
+<li>Spectrograms and oscillograms</li>
+<li>Filtering and re-sampling</li>
+<li>Acoustic measurements</li>
+</ul>
+<p><strong>Annotation software</strong> <a href="https://www.dropbox.com/s/7l921d584oh6djq/Annotations.html?dl=0" class="btn btn-warning btn-xs" role="button">annotations</a></p>
+<ul>
+<li>Raven / audacity</li>
+<li>Open and explore recordings</li>
+<li>Modify-optimize visualization parameters</li>
+<li>Annotate signals</li>
+</ul>
+<p><strong>Intro to warbleR</strong> <a href="https://ndownloader.figshare.com/files/27066653" class="btn btn-warning btn-xs" role="button">Intro to warbleR</a></p>
+<ul>
+<li>Intro to warbleR</li>
+<li>Selection tables</li>
+<li>Extended selection tables</li>
+<li>Selection table manipulation</li>
+<li>warbleR functions and the bioacoustics analysis workflow</li>
+</ul>
+<p><strong>Automatic detection</strong> <a href="https://ndownloader.figshare.com/files/27242135" class="btn btn-warning btn-xs" role="button">Automatic detection</a></p>
+<ul>
+<li>Detection using amplitude, frequency, and time filters (<code>auto_detec()</code>)</li>
+<li>Detection using cross-correlation (<code>cross_correlation()</code>)</li>
+<li>Frequency range detection (<code>freq_range()</code> and <code>freq_range_detec()</code>)</li>
+</ul>
+<p><strong>Quantifying acoustic signal structure</strong> <a href="https://ndownloader.figshare.com/files/27232883" class="btn btn-warning btn-xs" role="button">Quantify structure</a></p>
+<ul>
+<li>Spectro-temporal measurements (<code>spectro_analysis()</code>)</li>
+<li>Parameter description</li>
+<li>Harmonic content</li>
+<li>Cepstral coefficients (<code>mfcc_stats()</code>)</li>
+<li>Cross-correlation (<code>cross_correlation()</code>)</li>
+<li>Dynamic time warping (<code>freq_DTW()</code>)</li>
+<li>Signal-to-noise ratio (<code>sig2noise()</code>)</li>
+<li>Inflections (<code>inflections()</code>)</li>
+<li>Parameters at other levels (<code>song_analysis()</code>)</li>
+</ul>
+<p><strong>Characterizing hierarchical levels in acoustic signals</strong></p>
+<ul>
+<li>Creating ‘song’ spectrograms (<code>full_spectrograms()</code>, <code>spectrograms()</code>)</li>
+<li>‘Song’ parameters (<code>song_analysis()</code>)</li>
+</ul>
+<p><strong>Choosing the right method for quantifying structure</strong> <a href="https://ndownloader.figshare.com/files/27262301" class="btn btn-warning btn-xs" role="button">Compare methods</a></p>
+<ul>
+<li>Compare different methods for quantifying structure (<code>compare_methods()</code>)</li>
+</ul>
+<p><strong>Quality control in recordings and annotation</strong> <a href="https://ndownloader.figshare.com/files/27263603" class="btn btn-warning btn-xs" role="button">Quality checks</a></p>
+<ul>
+<li>Check and modify sound file format (<code>check_wavs()</code>, <code>info_wavs()</code>, <code>duration_wavs()</code>, <code>mp32wav()</code> y <code>fix_wavs()</code>)</li>
+<li>Tuning spectrogram parameters (<code>tweak_spectro()</code>)</li>
+<li>Double-checking selection tables (<code>check_sels()</code>, <code>spectrograms()</code>, <code>full_spectrograms()</code> &amp; <code>catalog()</code>)</li>
+<li>Re-adjusting selections (<code>tailor_sels()</code>)</li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -3,7 +3,18 @@ output_dir: "docs"
 navbar:
   title: "BOKU bioacoustics R 2022"
   left:
+    - text: "Program"
+      href: program.html
     - text: "Tutorials"
       menu:
       - text: "R basics"
-        href: R_basics.html
+        href: r_basics.html
+      - text: "Sound"
+        href: sound.html
+      - text: "Spectrograms"
+        href: spectrograms.html
+      - text: "seewave"
+        href: seewave.html
+    - text: "About"
+      href: about.html
+
