@@ -1,5 +1,5 @@
 ---
-title: "About This Website"
+title: "Marcelo Araya-Salas"
 ---
 
-More about this website.
+I'm deeply involved in the development of computational tools for bioacoustic analyses. Grace Smith-Vidaurre and I have created the R package warbleR that provides functions to streamline high-throughput acoustic analysis of animal sounds. I also made available two R packages, Rraven and NatureSounds, that aim to simplify the use of R for bioacoustic research. More recently I released  the R packages baRulho, to quantify acoustic signal transmission and degradation, and ohun, to optimize automatic detection. New functions as well as other more elaborated analyses are detailed in my blog Bioacoustics in R.

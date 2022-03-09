@@ -326,10 +326,7 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Tutorials</a>
-</li>
-<li>
-  <a href="R_basics.html">R basics</a>
+  <a></a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -548,7 +545,7 @@ l</code></pre>
 ## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;
 ## 
 ## $size
-## [1] -1.35644 -0.41620  1.80430 -0.70386 -0.70456 -0.14197
+## [1]  2.64568  1.22177 -0.90258  1.72930 -1.52247  0.65410
 ## 
 ## $observed
 ## [1] FALSE  TRUE FALSE FALSE FALSE</code></pre>
@@ -557,7 +554,7 @@ l</code></pre>
 <pre class="r"><code>str(l)</code></pre>
 <pre><code>## List of 3
 ##  $ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num [1:6] -1.356 -0.416 1.804 -0.704 -0.705 ...
+##  $ size    : num [1:6] 2.646 1.222 -0.903 1.729 -1.522 ...
 ##  $ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p>… and dimensions:</p>
 <pre class="r"><code>l &lt;- list(ID = letters[1:5], size = rnorm(6), observed = c(FALSE, TRUE, FALSE, FALSE, FALSE), l)
@@ -565,11 +562,11 @@ l</code></pre>
 str(l)</code></pre>
 <pre><code>## List of 4
 ##  $ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num [1:6] -0.33 1.415 -0.377 0.219 1.476 ...
+##  $ size    : num [1:6] 0.5969 0.901 -0.0168 1.1519 1.2675 ...
 ##  $ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##  $         :List of 3
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] -1.356 -0.416 1.804 -0.704 -0.705 ...
+##   ..$ size    : num [1:6] 2.646 1.222 -0.903 1.729 -1.522 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <pre class="r"><code>l2 &lt;- list(l, l)
 
@@ -577,19 +574,19 @@ str(l2)</code></pre>
 <pre><code>## List of 2
 ##  $ :List of 4
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] -0.33 1.415 -0.377 0.219 1.476 ...
+##   ..$ size    : num [1:6] 0.5969 0.901 -0.0168 1.1519 1.2675 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##   ..$         :List of 3
 ##   .. ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   .. ..$ size    : num [1:6] -1.356 -0.416 1.804 -0.704 -0.705 ...
+##   .. ..$ size    : num [1:6] 2.646 1.222 -0.903 1.729 -1.522 ...
 ##   .. ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##  $ :List of 4
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] -0.33 1.415 -0.377 0.219 1.476 ...
+##   ..$ size    : num [1:6] 0.5969 0.901 -0.0168 1.1519 1.2675 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##   ..$         :List of 3
 ##   .. ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   .. ..$ size    : num [1:6] -1.356 -0.416 1.804 -0.704 -0.705 ...
+##   .. ..$ size    : num [1:6] 2.646 1.222 -0.903 1.729 -1.522 ...
 ##   .. ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p><font size="5">Attributes</font></p>
@@ -728,12 +725,12 @@ c</code></pre>
 dim(m)</code></pre>
 <pre><code>## [1] 5 3</code></pre>
 <pre class="r"><code>m</code></pre>
-<pre><code>##   ID      size observed
-## 1  a -0.397456    FALSE
-## 2  b -0.944397     TRUE
-## 3  c -1.343188    FALSE
-## 4  d  0.037052    FALSE
-## 5  e  0.555731    FALSE</code></pre>
+<pre><code>##   ID     size observed
+## 1  a  2.15404    FALSE
+## 2  b  0.18892     TRUE
+## 3  c -0.18976    FALSE
+## 4  d -1.21551    FALSE
+## 5  e -0.12739    FALSE</code></pre>
 <pre class="r"><code>class(m)</code></pre>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <pre class="r"><code>is.data.frame(m)</code></pre>
@@ -743,7 +740,7 @@ dim(m)</code></pre>
 <pre class="r"><code>str(m)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    5 obs. of  3 variables:
 ##  $ ID      : chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num  -0.3975 -0.9444 -1.3432 0.0371 0.5557
+##  $ size    : num  2.154 0.189 -0.19 -1.216 -0.127
 ##  $ observed: logi  FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p>But vectors should have the same length:</p>
@@ -756,7 +753,7 @@ dim(m)</code></pre>
 <pre class="r"><code>str(m)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    5 obs. of  3 variables:
 ##  $ ID      : chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num  -0.3975 -0.9444 -1.3432 0.0371 0.5557
+##  $ size    : num  2.154 0.189 -0.19 -1.216 -0.127
 ##  $ observed: logi  FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p>Complex elements can be added to a data frame using <code>I()</code> to treat the list as one unit:</p>
@@ -914,10 +911,11 @@ bi &lt;- builtins()
 length(bi)</code></pre>
 <pre><code>## [1] 1371</code></pre>
 <pre class="r"><code>sample(bi, 10)</code></pre>
-<pre><code>##  [1] &quot;qr.qty&quot;             &quot;srcfilecopy&quot;        &quot;shQuote&quot;           
-##  [4] &quot;[.Date&quot;             &quot;duplicated.default&quot; &quot;cosh&quot;              
-##  [7] &quot;cumsum&quot;             &quot;dirname&quot;            &quot;Sys.setFileTime&quot;   
-## [10] &quot;file.rename&quot;</code></pre>
+<pre><code>##  [1] &quot;license&quot;                    &quot;attributes&quot;                
+##  [3] &quot;within&quot;                     &quot;substr&quot;                    
+##  [5] &quot;invokeRestartInteractively&quot; &quot;as.data.frame.ordered&quot;     
+##  [7] &quot;getOption&quot;                  &quot;qr.qty&quot;                    
+##  [9] &quot;determinant.matrix&quot;         &quot;namespaceExport&quot;</code></pre>
 <p> </p>
 <p>Operators are functions:</p>
 <pre class="r"><code>1 + 1</code></pre>
