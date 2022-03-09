@@ -3,7 +3,7 @@ output_dir: "docs"
 navbar:
   title: "BOKU bioacoustics R 2022"
   left:
-    menu:
-    - heading: "Tutorials"
-    - text: "R basics"
-      href: R_basics.html
+    - text: "Tutorials"
+      menu:
+      - text: "R basics"
+        href: R_basics.html
