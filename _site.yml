@@ -5,5 +5,5 @@ navbar:
   left:
     - text: "Tutorials"
       href: index.html
-    - text: "About"
-      href: about.html
+    - text: "R basics"
+      href: R_basics.html
