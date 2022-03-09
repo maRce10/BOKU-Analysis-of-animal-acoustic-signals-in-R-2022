@@ -344,6 +344,12 @@ div.tocify {
     <li>
       <a href="spectrograms.html">Spectrograms</a>
     </li>
+    <li>
+      <a href="seewave.html">seewave</a>
+    </li>
+    <li>
+      <a href="annotations.html">Annotations</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -566,7 +572,7 @@ l</code></pre>
 ## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;
 ## 
 ## $size
-## [1]  1.47530  0.70479 -1.45525 -1.13584  1.42478 -1.02693
+## [1]  3.64126 -0.71838 -2.14821 -0.21135 -0.33736  1.80005
 ## 
 ## $observed
 ## [1] FALSE  TRUE FALSE FALSE FALSE</code></pre>
@@ -575,7 +581,7 @@ l</code></pre>
 <pre class="r"><code>str(l)</code></pre>
 <pre><code>## List of 3
 ##  $ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num [1:6] 1.475 0.705 -1.455 -1.136 1.425 ...
+##  $ size    : num [1:6] 3.641 -0.718 -2.148 -0.211 -0.337 ...
 ##  $ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p>… and dimensions:</p>
 <pre class="r"><code>l &lt;- list(ID = letters[1:5], size = rnorm(6), observed = c(FALSE, TRUE, FALSE, FALSE, FALSE), l)
@@ -583,11 +589,11 @@ l</code></pre>
 str(l)</code></pre>
 <pre><code>## List of 4
 ##  $ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num [1:6] 0.776 0.186 1.224 -0.152 -0.264 ...
+##  $ size    : num [1:6] 1.102 -0.0685 -0.3334 -0.8985 0.3541 ...
 ##  $ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##  $         :List of 3
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] 1.475 0.705 -1.455 -1.136 1.425 ...
+##   ..$ size    : num [1:6] 3.641 -0.718 -2.148 -0.211 -0.337 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <pre class="r"><code>l2 &lt;- list(l, l)
 
@@ -595,19 +601,19 @@ str(l2)</code></pre>
 <pre><code>## List of 2
 ##  $ :List of 4
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] 0.776 0.186 1.224 -0.152 -0.264 ...
+##   ..$ size    : num [1:6] 1.102 -0.0685 -0.3334 -0.8985 0.3541 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##   ..$         :List of 3
 ##   .. ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   .. ..$ size    : num [1:6] 1.475 0.705 -1.455 -1.136 1.425 ...
+##   .. ..$ size    : num [1:6] 3.641 -0.718 -2.148 -0.211 -0.337 ...
 ##   .. ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##  $ :List of 4
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] 0.776 0.186 1.224 -0.152 -0.264 ...
+##   ..$ size    : num [1:6] 1.102 -0.0685 -0.3334 -0.8985 0.3541 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##   ..$         :List of 3
 ##   .. ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   .. ..$ size    : num [1:6] 1.475 0.705 -1.455 -1.136 1.425 ...
+##   .. ..$ size    : num [1:6] 3.641 -0.718 -2.148 -0.211 -0.337 ...
 ##   .. ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p><font size="5">Attributes</font></p>
@@ -746,12 +752,12 @@ c</code></pre>
 dim(m)</code></pre>
 <pre><code>## [1] 5 3</code></pre>
 <pre class="r"><code>m</code></pre>
-<pre><code>##   ID     size observed
-## 1  a  0.79011    FALSE
-## 2  b  0.62693     TRUE
-## 3  c -0.18177    FALSE
-## 4  d  0.64130    FALSE
-## 5  e  0.30177    FALSE</code></pre>
+<pre><code>##   ID      size observed
+## 1  a  0.440091    FALSE
+## 2  b -0.239286     TRUE
+## 3  c  0.256388    FALSE
+## 4  d  0.039011    FALSE
+## 5  e  0.196496    FALSE</code></pre>
 <pre class="r"><code>class(m)</code></pre>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <pre class="r"><code>is.data.frame(m)</code></pre>
@@ -761,7 +767,7 @@ dim(m)</code></pre>
 <pre class="r"><code>str(m)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    5 obs. of  3 variables:
 ##  $ ID      : chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num  0.79 0.627 -0.182 0.641 0.302
+##  $ size    : num  0.44 -0.239 0.256 0.039 0.196
 ##  $ observed: logi  FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p>But vectors should have the same length:</p>
@@ -774,7 +780,7 @@ dim(m)</code></pre>
 <pre class="r"><code>str(m)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    5 obs. of  3 variables:
 ##  $ ID      : chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num  0.79 0.627 -0.182 0.641 0.302
+##  $ size    : num  0.44 -0.239 0.256 0.039 0.196
 ##  $ observed: logi  FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p>Complex elements can be added to a data frame using <code>I()</code> to treat the list as one unit:</p>
@@ -930,12 +936,12 @@ l[[1]]</code></pre>
 bi &lt;- builtins()
 
 length(bi)</code></pre>
-<pre><code>## [1] 1370</code></pre>
+<pre><code>## [1] 1371</code></pre>
 <pre class="r"><code>sample(bi, 10)</code></pre>
-<pre><code>##  [1] &quot;findRestart&quot;            &quot;|&quot;                      &quot;format&quot;                
-##  [4] &quot;as.logical&quot;             &quot;[.hexmode&quot;              &quot;[[.POSIXlt&quot;            
-##  [7] &quot;quarters&quot;               &quot;bindtextdomain&quot;         &quot;agrepl&quot;                
-## [10] &quot;namespaceImportClasses&quot;</code></pre>
+<pre><code>##  [1] &quot;summary.matrix&quot;       &quot;isSymmetric.matrix&quot;   &quot;.isMethodsDispatchOn&quot;
+##  [4] &quot;diff.difftime&quot;        &quot;.format.zeros&quot;        &quot;file.choose&quot;         
+##  [7] &quot;merge&quot;                &quot;summary.data.frame&quot;   &quot;.Last.value&quot;         
+## [10] &quot;signif&quot;</code></pre>
 <p> </p>
 <p>Operators are functions:</p>
 <pre class="r"><code>1 + 1</code></pre>

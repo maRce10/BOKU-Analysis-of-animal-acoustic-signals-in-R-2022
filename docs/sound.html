@@ -334,13 +334,19 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="R_basics.html">R basics</a>
+      <a href="r_basics.html">R basics</a>
     </li>
     <li>
-      <a href="Sound_in_R.html">Sound</a>
+      <a href="sound.html">Sound</a>
     </li>
     <li>
-      <a href="Spectrograms.html">Spectrograms</a>
+      <a href="spectrograms.html">Spectrograms</a>
+    </li>
+    <li>
+      <a href="seewave.html">seewave</a>
+    </li>
+    <li>
+      <a href="annotations.html">Annotations</a>
     </li>
   </ul>
 </li>
@@ -445,7 +451,7 @@ str(s4)</code></pre>
 <pre class="r"><code>s4 &lt;- ts(data = runif(4000, min = -1, max = 1), start = 0, end = 0.5, frequency = 8000)
 
 str(s4)</code></pre>
-<pre><code>##  Time-Series [1:4001] from 0 to 0.5: -0.0959 0.4375 0.0658 -0.7439 0.1 ...</code></pre>
+<pre><code>##  Time-Series [1:4001] from 0 to 0.5: 0.313 -0.436 -0.614 -0.557 -0.273 ...</code></pre>
 <p> </p>
 <p>The <code>frequency()</code> and <code>deltat()</code> functions return the sampling frequency (<span class="math inline">\(f\)</span>) and the time resolution (<span class="math inline">\(Delta t\)</span>) respectively:</p>
 <pre class="r"><code>frequency(s4)</code></pre>
@@ -588,7 +594,7 @@ s7</code></pre>
 ## 
 ##    Read from file:         ./examples/Phae.long1.wav
 ##    Sampling frequency:     22500  Hz
-##    Duration:               2500.044  ms
+##    Duration:               2500  ms
 ##    Number of Samples:      56251</code></pre>
 <pre class="r"><code>str(s8)</code></pre>
 <pre><code>## List of 5
@@ -617,8 +623,7 @@ s7</code></pre>
 
 head(s10)</code></pre>
 <pre><code>## sample rate: 22500Hz, mono, 16-bits
-## [1]  4.943848e-03 -2.652058e-02  2.542114e-02  1.910400e-02  3.143311e-03
-## [6] -6.103702e-05</code></pre>
+## [1]  4.9438e-03 -2.6521e-02  2.5421e-02  1.9104e-02  3.1433e-03 -6.1037e-05</code></pre>
 <pre class="r"><code>s10$rate</code></pre>
 <pre><code>## [1] 22500</code></pre>
 <pre class="r"><code>s10$bits</code></pre>
@@ -718,14 +723,21 @@ listen(x, f = 16000, from = 0, to = 2)</code></pre>
 ## 
 ## other attached packages:
 ## [1] audio_0.1-10      phonTools_0.2-2.1 tuneR_1.3.3.1     seewave_2.1.8    
+## [5] Rraven_1.0.13     kableExtra_1.3.4  knitr_1.37        shiny_1.6.0      
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] digest_0.6.29   MASS_7.3-54     R6_2.5.1        jsonlite_1.7.2 
-##  [5] signal_0.7-7    magrittr_2.0.2  evaluate_0.14   highr_0.9      
-##  [9] stringi_1.7.6   rlang_1.0.1     cli_3.1.0       rstudioapi_0.13
-## [13] jquerylib_0.1.4 bslib_0.2.5.1   rmarkdown_2.10  tools_4.1.1    
-## [17] stringr_1.4.0   xfun_0.29       yaml_2.2.2      fastmap_1.1.0  
-## [21] compiler_4.1.1  htmltools_0.5.2 knitr_1.37      sass_0.4.0</code></pre>
+##  [1] Rcpp_1.0.8        highr_0.9         bslib_0.2.5.1     compiler_4.1.1   
+##  [5] later_1.3.0       jquerylib_0.1.4   tools_4.1.1       digest_0.6.29    
+##  [9] viridisLite_0.4.0 jsonlite_1.7.2    evaluate_0.14     lifecycle_1.0.1  
+## [13] rlang_1.0.1       cli_3.1.0         rstudioapi_0.13   parallel_4.1.1   
+## [17] yaml_2.2.2        xfun_0.29         fastmap_1.1.0     stringr_1.4.0    
+## [21] httr_1.4.2        xml2_1.3.2        systemfonts_1.0.2 sass_0.4.0       
+## [25] webshot_0.5.2     svglite_2.0.0     glue_1.6.1        R6_2.5.1         
+## [29] pbapply_1.5-0     rmarkdown_2.10    monitoR_1.0.7     magrittr_2.0.2   
+## [33] MASS_7.3-54       scales_1.1.1      promises_1.2.0.1  ellipsis_0.3.2   
+## [37] htmltools_0.5.2   rsconnect_0.8.24  rvest_1.0.1       colorspace_2.0-2 
+## [41] mime_0.11         xtable_1.8-4      httpuv_1.6.2      stringi_1.7.6    
+## [45] signal_0.7-7      munsell_0.5.0     cachem_1.0.6</code></pre>
 </div>
 </div>
 
