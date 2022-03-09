@@ -1,8 +1,3 @@
----
-title: "Program"
----
-
-### Program
 
 <font size="3.5">
 
@@ -12,7 +7,7 @@ title: "Program"
 -   Analytical workflow in bioacoustics research
 
 **Basic R concepts**
-<a href="https://github.com/maRce10/BOKU_bioacoustics_2022/blob/master/tutorials/R-basics.html" class="btn btn-warning btn-xs" role="button">R
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/r_basics.html" class="btn btn-warning btn-xs" role="button">R
 basics</a>
 
 -   Object types in R
@@ -21,7 +16,7 @@ basics</a>
 -   R documentation
 
 **What is sound?**
-<a href="https://www.dropbox.com/s/yw3vfa5olbocm8q/Sound_in_R.html?dl=0" class="btn btn-warning btn-xs" role="button">Sound</a>
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/sound.html" class="btn btn-warning btn-xs" role="button">Sound</a>
 
 -   Sound as a time series
 -   Sound as a digital object
@@ -31,7 +26,7 @@ basics</a>
 -   additional formats
 
 **Building spectrograms**
-<a href="https://marceloarayasalas.weebly.com/uploads/2/5/5/2/25524573/spectrograms.html" class="btn btn-warning btn-xs" role="button">Building
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/spectrograms.html" class="btn btn-warning btn-xs" role="button">Building
 spectrograms</a>
 
 -   Fourier transform
@@ -40,7 +35,7 @@ spectrograms</a>
 -   Spectrograms in R
 
 **Package seewave**
-<a href="https://marceloarayasalas.weebly.com/uploads/2/5/5/2/25524573/seewave.html" class="btn btn-warning btn-xs" role="button">seewave</a>
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/seewave.html" class="btn btn-warning btn-xs" role="button">seewave</a>
 
 -   Explore, modify and measure ‘wave’ objects
 -   Spectrograms and oscillograms
@@ -48,7 +43,7 @@ spectrograms</a>
 -   Acoustic measurements
 
 **Annotation software**
-<a href="https://www.dropbox.com/s/7l921d584oh6djq/Annotations.html?dl=0" class="btn btn-warning btn-xs" role="button">annotations</a>
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/annotations.html" class="btn btn-warning btn-xs" role="button">annotations</a>
 
 -   Raven / audacity
 -   Open and explore recordings

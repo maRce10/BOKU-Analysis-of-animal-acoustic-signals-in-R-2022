@@ -17,6 +17,8 @@ navbar:
         href: seewave.html
       - text: "Annotations"
         href: annotations.html
+      - text: "Intro to warbleR"
+        href: intro_to_warbler.html        
     - text: "About"
       href: about.html
 
