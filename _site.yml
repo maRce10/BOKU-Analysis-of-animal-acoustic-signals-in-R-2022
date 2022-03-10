@@ -7,6 +7,8 @@ navbar:
       href: program.html
     - text: "Tutorials"
       menu:
+      - text: "Introduction"
+        href: introduction.html
       - text: "R basics"
         href: r_basics.html
       - text: "Sound"
@@ -17,10 +19,10 @@ navbar:
         href: seewave.html
       - text: "Annotations"
         href: annotations.html
-      - text: "Intro to warbleR"
-        href: intro_to_warbler.html 
       - text: "ohun: automatic detection"
         href: ohun.html
+      - text: "Intro to warbleR"
+        href: intro_to_warbler.html 
       - text: "Measure acoustic structure"
         href: measure_acoustic_structure.html
       - text: "Comparing measuring methods"

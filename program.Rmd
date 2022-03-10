@@ -1,5 +1,9 @@
 
-<font size="3.5">
+<font size="4">
+
+## Day 1
+
+--- 
 
 **Introduction**
 <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/introduction.html" class="btn btn-warning btn-xs" role="button">Introduction</a>
@@ -27,6 +31,14 @@
 -   ‘wave’ object manipulations
 -   additional formats
 
+---
+
+&nbsp; 
+
+## Day 2
+
+---
+
 **Building spectrograms**
 <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/spectrograms.html" class="btn btn-warning btn-xs" role="button">Building
 spectrograms</a>
@@ -52,6 +64,24 @@ spectrograms</a>
 -   Modify-optimize visualization parameters
 -   Annotate signals
 
+---
+
+&nbsp;
+
+## Day 3
+
+---
+
+
+**Automatic detection**
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/ohun.html" class="btn btn-warning btn-xs" role="button">Automatic detection</a>
+
+-   ohun package for optimize acoustic signal detection
+-   Detection using amplitude, frequency, and time filters
+    (`ohun::energy_detector()`)
+-   Detection using cross-correlation (`ohun::template_detector()`)
+-   Frequency range detection (`warbleR::freq_range()` and `warbleR::freq_range_detec()`)
+
 **Intro to warbleR**
 <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/intro_to_warbler.html" class="btn btn-warning btn-xs" role="button">Intro
 to warbleR</a>
@@ -62,14 +92,6 @@ to warbleR</a>
 -   Selection table manipulation
 -   warbleR functions and the bioacoustics analysis workflow
 
-**Automatic detection**
-<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/ohun.html" class="btn btn-warning btn-xs" role="button">Automatic detection</a>
-
--   ohun package for optimize acoustic signal detection
--   Detection using amplitude, frequency, and time filters
-    (`ohun::energy_detector()`)
--   Detection using cross-correlation (`ohun::template_detector()`)
--   Frequency range detection (`warbleR::freq_range()` and `warbleR::freq_range_detec()`)
 
 **Quantifying acoustic signal structure**
 <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/measure_acoustic_structure.html" class="btn btn-warning btn-xs" role="button">Quantify structure</a>
@@ -83,6 +105,14 @@ to warbleR</a>
 -   Signal-to-noise ratio (`sig2noise()`)
 -   Inflections (`inflections()`)
 -   Parameters at other levels (`song_analysis()`)
+
+---
+
+&nbsp; 
+
+## Day 4
+
+---
 
 **Characterizing hierarchical levels in acoustic signals**
 
@@ -105,3 +135,12 @@ to warbleR</a>
 -   Double-checking selection tables (`check_sels()`, `spectrograms()`,
     `full_spectrograms()` & `catalog()`)
 -   Re-adjusting selections (`tailor_sels()`)
+
+
+---
+
+&nbsp; 
+
+## Day 5
+
+---
