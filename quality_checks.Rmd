@@ -1,6 +1,6 @@
 ---
 title: <font size="7"><b>Quality checks for recordings and annotations</b></font>
-subtitle: <center><font size="4"><b>Analysis of animal acoustic signals in R</b> <br> BOKU International wildlife lectures, 2022</font></center>
+subtitle: <center><font size="4"><b>Analysis of animal acoustic signals in R</b> <br> BOKU International Wildlife Lectures</font></center>
 author: <center><font size="3"><a href="http://marceloarayasalas.weebly.com/">Marcelo Araya-Salas, PhD</a></font></center>
 date: <center>"`r Sys.Date()`"</center>
 output:
@@ -507,9 +507,7 @@ tailor_sels(X = lbh_selec_table[1:4, ], auto.next = TRUE)
 
 ```
 
-![](seltailor.autonext.gif)
-
-&nbsp;
+<img src = "images/seltailor.contour.gif" alt = "expraven1" width = "820">
 
 &nbsp; 
 
@@ -525,7 +523,8 @@ tail.cntours <-tailor_sels(X = lbh_selec_table[1:5, ], ts.df = cntours,
                 auto.contour = TRUE)
 ```
 
-![](seltailor.contour.gif)
+<img src = "images/seltailor.contour.gif" alt = "expraven1" width = "820">
+
 &nbsp;
 
 ---

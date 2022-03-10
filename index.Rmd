@@ -9,13 +9,13 @@
 International wildlife lectures</a><br></b></font>
 </center>
 
-<br>
-
 <center>
 <font size="4">March 14 - 18, 2022</font>
 </center>
 
 <center><img src="images/measures-parrot-call-spectro3.jpg" alt = "acousti measurements"></center>
+
+&nbsp; 
 
 The study of animal acoustic signals is a central tool for many fields
 in behavior, ecology, evolution and biodiversity monitoring. The

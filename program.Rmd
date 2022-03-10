@@ -1,14 +1,16 @@
 
 <font size="3.5">
 
-**General bioacoustics concepts**
+**Introduction**
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/introduction.html" class="btn btn-warning btn-xs" role="button">Introduction</a>
 
--   History and development
+-   How animal acoustic signals look like?
 -   Analytical workflow in bioacoustics research
+-   Advantages of programming
+-   Course structure
 
 **Basic R concepts**
-<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/r_basics.html" class="btn btn-warning btn-xs" role="button">R
-basics</a>
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/r_basics.html" class="btn btn-warning btn-xs" role="button">R basics</a>
 
 -   Object types in R
 -   Subsetting

@@ -1,6 +1,6 @@
 ---
 title: <center><font size="7"><b>Measures of acoustic structure</b></font></center>
-subtitle: <center><font size="4"><b>Analysis of animal acoustic signals in R</b> <br> BOKU International wildlife lectures, 2022</font></center>
+subtitle: <center><font size="4"><b>Analysis of animal acoustic signals in R</b> <br> BOKU International Wildlife Lectures</font></center>
 author: <center><font size="3"><a href="http://marceloarayasalas.weebly.com/">Marcelo Araya-Salas, PhD</a></font></center>
 date: <center>"`r Sys.Date()`"</center>
 output:

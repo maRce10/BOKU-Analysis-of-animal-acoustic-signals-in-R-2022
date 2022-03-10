@@ -1,6 +1,6 @@
 ---
 title: <center><font size="7"><b>Import annotations into R</b></font></center>
-subtitle: <center><font size="4"><b>Analysis of animal acoustic signals in R</b> <br> BOKU International wildlife lectures, 2022</font></center>
+subtitle: <center><font size="4"><b>Analysis of animal acoustic signals in R</b> <br> BOKU International Wildlife Lectures</font></center>
 author: <center><font size="3"><a href="http://marceloarayasalas.weebly.com/">Marcelo Araya-Salas, PhD</a></font></center>
 date: <center>"`r Sys.Date()`"</center>
 output:
@@ -139,7 +139,8 @@ The annotations are saved in '.csv' format upon exiting the function (name must 
 
 &nbsp; 
 
-![](audacity_selec.gif)
+<img src = "images/audacity_selec.gif" alt = "audacity" width = "820">
+<!-- ![](images/audacity_selec.gif) -->
 
 &nbsp; 
 
@@ -170,7 +171,7 @@ The annotations are saved in '.csv' format upon exiting the function (name must 
 
 &nbsp; 
 
-<img src="images/Raven.selec.gif" alt="Raven">
+<img src="images/Raven.selec.gif" alt="Raven" width = "820">
 
 &nbsp; 
 
@@ -178,7 +179,7 @@ Selections can be reopened on the original file where they were made:
 
 &nbsp; 
 
-<img src="images/Raven.open.st.gif" alt="Raven">
+<img src="images/Raven.open.st.gif" alt="Raven" width = "820">
 
 &nbsp; 
 
@@ -186,7 +187,7 @@ The selections with sound (sound selection table) are a special type of annotati
 
 &nbsp;
 
-<img src = "Raven.create.sst.gif" alt = "Raven">
+<img src = "Raven.create.sst.gif" alt = "Raven" width = "820">
 
 &nbsp;
 
@@ -194,7 +195,7 @@ These selections open easily in Raven, as long as the sound files are kept in th
 
 &nbsp; 
 
-<img src="images/Raven.open.sst.gif" alt="Raven">
+<img src="images/Raven.open.sst.gif" alt="Raven" width = "820">
 
 &nbsp; 
 
@@ -375,12 +376,14 @@ st1 <- lbh_selec_table[lbh_selec_table$sound.files == "Phae.long1.wav",]
 exp_raven(st1, file.name = "Phaethornis 1", khz.to.hz = TRUE, sound.file.path = "./examples")
 
 ```
-![](exp_raven1.gif)
+![](images/exp_raven1.gif)
+<img src = "images/exp_raven1.gif" alt = "expraven1" width = "480">
+
 &nbsp; 
 
 This is useful for adding new selections or even new measurements:
 
-![](exp_raven2.gif)
+![](images/exp_raven2.gif)
 &nbsp;
 
 If there are several sound files available, users can export them as a single selection file or as multiple selection files (one for each sound file). This example creates a multiple selection of sound files:
@@ -395,7 +398,7 @@ sound.file.path = "./examples", single.file = TRUE)
 
 These types of tables can be opened as a multi-file display in Raven:
 
-![ex](exp_raven3.gif)
+![ex](images/exp_raven3.gif)
 
 &nbsp;
 
@@ -416,7 +419,7 @@ run_raven(raven.path = raven.path, sound.files = c("Phae.long1.wav", "Phae.long2
 
 ``` 
 
-![gif5](run_raven1.gif)
+![gif5](images/run_raven1.gif)
 
 &nbsp;
 
@@ -427,7 +430,7 @@ run_raven(raven.path = raven.path, sound.files = c("Phae.long1.wav", "Phae.long2
 
 &nbsp;
 
-- Annotate 2 sound files from the "./examples" folder using **Raven** (try calling Raven from R using `run_raven()`)
+- Annotate 2 sound files from the "./examples" folder using **Raven**
 
 &nbsp;
 
