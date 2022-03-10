@@ -51,7 +51,7 @@ spectrograms</a>
 -   Annotate signals
 
 **Intro to warbleR**
-<a href="https://ndownloader.figshare.com/files/27066653" class="btn btn-warning btn-xs" role="button">Intro
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/intro_to_warbler.html" class="btn btn-warning btn-xs" role="button">Intro
 to warbleR</a>
 
 -   Intro to warbleR
@@ -61,17 +61,16 @@ to warbleR</a>
 -   warbleR functions and the bioacoustics analysis workflow
 
 **Automatic detection**
-<a href="https://ndownloader.figshare.com/files/27242135" class="btn btn-warning btn-xs" role="button">Automatic
-detection</a>
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/ohun.html" class="btn btn-warning btn-xs" role="button">Automatic detection</a>
 
+-   ohun package for optimize acoustic signal detection
 -   Detection using amplitude, frequency, and time filters
-    (`auto_detec()`)
--   Detection using cross-correlation (`cross_correlation()`)
--   Frequency range detection (`freq_range()` and `freq_range_detec()`)
+    (`ohun::energy_detector()`)
+-   Detection using cross-correlation (`ohun::template_detector()`)
+-   Frequency range detection (`warbleR::freq_range()` and `warbleR::freq_range_detec()`)
 
 **Quantifying acoustic signal structure**
-<a href="https://ndownloader.figshare.com/files/27232883" class="btn btn-warning btn-xs" role="button">Quantify
-structure</a>
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/measure_acoustic_structure.html" class="btn btn-warning btn-xs" role="button">Quantify structure</a>
 
 -   Spectro-temporal measurements (`spectro_analysis()`)
 -   Parameter description
@@ -90,15 +89,13 @@ structure</a>
 -   ‘Song’ parameters (`song_analysis()`)
 
 **Choosing the right method for quantifying structure**
-<a href="https://ndownloader.figshare.com/files/27262301" class="btn btn-warning btn-xs" role="button">Compare
-methods</a>
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/comparing_methods.html" class="btn btn-warning btn-xs" role="button">Comparing methods</a>
 
 -   Compare different methods for quantifying structure
     (`compare_methods()`)
 
 **Quality control in recordings and annotation**
-<a href="https://ndownloader.figshare.com/files/27263603" class="btn btn-warning btn-xs" role="button">Quality
-checks</a>
+<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/quality_checks.html" class="btn btn-warning btn-xs" role="button">Quality checks</a>
 
 -   Check and modify sound file format (`check_wavs()`, `info_wavs()`,
     `duration_wavs()`, `mp32wav()` y `fix_wavs()`)

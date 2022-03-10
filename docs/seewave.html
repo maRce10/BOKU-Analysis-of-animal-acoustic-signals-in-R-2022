@@ -348,6 +348,21 @@ div.tocify {
     <li>
       <a href="annotations.html">Annotations</a>
     </li>
+    <li>
+      <a href="intro_to_warbler.html">Intro to warbleR</a>
+    </li>
+    <li>
+      <a href="ohun.html">ohun: automatic detection</a>
+    </li>
+    <li>
+      <a href="measure_acoustic_structure.html">Measure acoustic structure</a>
+    </li>
+    <li>
+      <a href="comparing_methods.html">Comparing measuring methods</a>
+    </li>
+    <li>
+      <a href="quality_checks.html">Quality checks</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -482,23 +497,21 @@ env(tico, f = 22050, colwave = &quot;blue&quot;)</code></pre>
 <p><img src="seewave_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <pre class="r"><code>tmr</code></pre>
 <pre><code>## $s
-## [1] 6.0140e-02 5.9187e-02 5.1341e-02 4.5354e-05 5.7283e-02 4.5354e-05 6.6671e-03
-## [8] 4.5354e-05 4.9663e-02
+## [1] 6.0140e-02 5.9187e-02 5.1341e-02 4.5354e-05 5.7283e-02 4.5354e-05 6.6671e-03 4.5354e-05
+## [9] 4.9663e-02
 ## 
 ## $p
-##  [1] 2.2088e-02 1.0046e-01 8.2726e-02 2.2677e-04 8.5946e-02 4.5354e-05 8.1320e-02
-##  [8] 4.9890e-04 4.5354e-05 6.0684e-02
+##  [1] 2.2088e-02 1.0046e-01 8.2726e-02 2.2677e-04 8.5946e-02 4.5354e-05 8.1320e-02 4.9890e-04
+##  [9] 4.5354e-05 6.0684e-02
 ## 
 ## $r
 ## [1] 0.65528
 ## 
 ## $s.start
-## [1] 0.022088 0.182687 0.324601 0.376169 0.462161 0.519489 0.600854 0.608020
-## [9] 0.608111
+## [1] 0.022088 0.182687 0.324601 0.376169 0.462161 0.519489 0.600854 0.608020 0.608111
 ## 
 ## $s.end
-## [1] 0.082227 0.241875 0.375942 0.376214 0.519443 0.519534 0.607521 0.608066
-## [9] 0.657774
+## [1] 0.082227 0.241875 0.375942 0.376214 0.519443 0.519534 0.607521 0.608066 0.657774
 ## 
 ## $first
 ## [1] &quot;pause&quot;</code></pre>
@@ -663,10 +676,10 @@ n2.sp &lt;- meanspec(note2, plot = FALSE)
 n2.spcp &lt;- specprop(n2.sp, f = note2@samp.rate)
 
 as.data.frame(n2.spcp)</code></pre>
-<pre><code>##     mean     sd median    sem   mode    Q25    Q75    IQR   cent skewness
-## 1 4346.9 694.26 4306.6 43.391 4349.7 3789.8 4780.4 990.53 4346.9   2.2248
-##   kurtosis      sfm      sh   prec
-## 1   6.6454 0.023993 0.69682 43.066</code></pre>
+<pre><code>##     mean     sd median    sem   mode    Q25    Q75    IQR   cent skewness kurtosis      sfm      sh
+## 1 4346.9 694.26 4306.6 43.391 4349.7 3789.8 4780.4 990.53 4346.9   2.2248   6.6454 0.023993 0.69682
+##     prec
+## 1 43.066</code></pre>
 <p> </p>
 <p>Measure the (auto)correlation between 2 amplitude envelopes (time):</p>
 <pre class="r"><code># get first note
@@ -706,8 +719,8 @@ csp &lt;- corspec(n1.sp, n2.sp, f = 22050)</code></pre>
 <p><img src="seewave_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <pre class="r"><code>cc</code></pre>
 <pre><code>## $cov
-##  [1] 0.000000 0.122107 0.222531 0.301012 0.459118 0.435812 0.309676 0.175892
-##  [9] 0.082271 0.018581 0.000000
+##  [1] 0.000000 0.122107 0.222531 0.301012 0.459118 0.435812 0.309676 0.175892 0.082271 0.018581
+## [11] 0.000000
 ## 
 ## $covmax
 ## [1] 0.45912
@@ -739,34 +752,43 @@ csp &lt;- corspec(n1.sp, n2.sp, f = 22050)</code></pre>
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=es_ES.UTF-8    
-##  [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=es_ES.UTF-8   
-##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C               LC_TIME=es_CR.UTF-8       
+##  [4] LC_COLLATE=es_ES.UTF-8     LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=es_ES.UTF-8   
+##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+## [10] LC_TELEPHONE=C             LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] seewave_2.1.8    Rraven_1.0.13    kableExtra_1.3.4 knitr_1.37      
-## [5] shiny_1.6.0     
+## [1] kableExtra_1.3.4   warbleR_1.1.27     NatureSounds_1.0.4 knitr_1.37         seewave_2.2.0     
+## [6] tuneR_1.3.3.1     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.8        highr_0.9         bslib_0.2.5.1     compiler_4.1.1   
-##  [5] later_1.3.0       jquerylib_0.1.4   phonTools_0.2-2.1 tools_4.1.1      
-##  [9] digest_0.6.29     viridisLite_0.4.0 jsonlite_1.7.2    evaluate_0.14    
-## [13] lifecycle_1.0.1   rlang_1.0.1       cli_3.1.0         rstudioapi_0.13  
-## [17] parallel_4.1.1    yaml_2.2.2        xfun_0.29         fastmap_1.1.0    
-## [21] stringr_1.4.0     httr_1.4.2        xml2_1.3.2        systemfonts_1.0.2
-## [25] sass_0.4.0        webshot_0.5.2     svglite_2.0.0     glue_1.6.1       
-## [29] R6_2.5.1          pbapply_1.5-0     rmarkdown_2.10    monitoR_1.0.7    
-## [33] tuneR_1.3.3.1     magrittr_2.0.2    MASS_7.3-54       scales_1.1.1     
-## [37] promises_1.2.0.1  ellipsis_0.3.2    htmltools_0.5.2   rsconnect_0.8.24 
-## [41] rvest_1.0.1       colorspace_2.0-2  mime_0.11         xtable_1.8-4     
-## [45] httpuv_1.6.2      stringi_1.7.6     signal_0.7-7      munsell_0.5.0    
-## [49] cachem_1.0.6</code></pre>
+##  [1] bitops_1.0-7         fs_1.5.0             monitoR_1.0.7        usethis_2.0.1       
+##  [5] devtools_2.4.2       webshot_0.5.2        httr_1.4.2           rprojroot_2.0.2     
+##  [9] Deriv_4.1.3          tools_4.1.1          bslib_0.2.5.1        utf8_1.2.2          
+## [13] R6_2.5.1             ohun_0.1.0           DBI_1.1.1            colorspace_2.0-3    
+## [17] withr_2.5.0          gridExtra_2.3        tidyselect_1.1.1     prettyunits_1.1.1   
+## [21] processx_3.5.2       moments_0.14         bioacoustics_0.2.8   compiler_4.1.1      
+## [25] soundgen_2.2.0       cli_3.2.0            rvest_1.0.1          formatR_1.11        
+## [29] xml2_1.3.2           microbenchmark_1.4-7 desc_1.3.0           sass_0.4.0          
+## [33] scales_1.1.1         callr_3.7.0          pbapply_1.5-0        proxy_0.4-26        
+## [37] dtw_1.22-3           phonTools_0.2-2.1    systemfonts_1.0.2    stringr_1.4.0       
+## [41] digest_0.6.29        shinyBS_0.61         Sim.DiffProc_4.8     rmarkdown_2.10      
+## [45] svglite_2.0.0        pkgconfig_2.0.3      htmltools_0.5.2      sessioninfo_1.1.1   
+## [49] fastmap_1.1.0        highr_0.9            rlang_1.0.2          rstudioapi_0.13     
+## [53] jquerylib_0.1.4      generics_0.1.0       farver_2.1.0         jsonlite_1.7.2      
+## [57] dplyr_1.0.7          RCurl_1.98-1.6       magrittr_2.0.2       Rcpp_1.0.8          
+## [61] munsell_0.5.0        fansi_1.0.2          viridis_0.6.2        lifecycle_1.0.1     
+## [65] stringi_1.7.6        yaml_2.3.5           MASS_7.3-54          pkgbuild_1.2.0      
+## [69] grid_4.1.1           parallel_4.1.1       crayon_1.5.0         ps_1.6.0            
+## [73] pillar_1.7.0         rjson_0.2.21         fftw_1.0-6.1         pkgload_1.2.1       
+## [77] glue_1.6.2           evaluate_0.15        remotes_2.4.0        vctrs_0.3.8         
+## [81] testthat_3.0.4       gtable_0.3.0         purrr_0.3.4          assertthat_0.2.1    
+## [85] cachem_1.0.6         ggplot2_3.3.5        xfun_0.30            viridisLite_0.4.0   
+## [89] signal_0.7-7         tibble_3.1.6         memoise_2.0.0        Rraven_1.0.13       
+## [93] ellipsis_0.3.2</code></pre>
 </div>
 
 

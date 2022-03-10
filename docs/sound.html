@@ -348,6 +348,21 @@ div.tocify {
     <li>
       <a href="annotations.html">Annotations</a>
     </li>
+    <li>
+      <a href="intro_to_warbler.html">Intro to warbleR</a>
+    </li>
+    <li>
+      <a href="ohun.html">ohun: automatic detection</a>
+    </li>
+    <li>
+      <a href="measure_acoustic_structure.html">Measure acoustic structure</a>
+    </li>
+    <li>
+      <a href="comparing_methods.html">Comparing measuring methods</a>
+    </li>
+    <li>
+      <a href="quality_checks.html">Quality checks</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -451,7 +466,7 @@ str(s4)</code></pre>
 <pre class="r"><code>s4 &lt;- ts(data = runif(4000, min = -1, max = 1), start = 0, end = 0.5, frequency = 8000)
 
 str(s4)</code></pre>
-<pre><code>##  Time-Series [1:4001] from 0 to 0.5: 0.313 -0.436 -0.614 -0.557 -0.273 ...</code></pre>
+<pre><code>##  Time-Series [1:4001] from 0 to 0.5: -0.11688 -0.22795 0.83405 -0.89194 -0.00618 ...</code></pre>
 <p> </p>
 <p>The <code>frequency()</code> and <code>deltat()</code> functions return the sampling frequency (<span class="math inline">\(f\)</span>) and the time resolution (<span class="math inline">\(Delta t\)</span>) respectively:</p>
 <pre class="r"><code>frequency(s4)</code></pre>
@@ -517,9 +532,9 @@ s6@samp.rate </code></pre>
 <p>The samples come in the slot ‘<span class="citation">@left</span>’:</p>
 <pre class="r"><code># samples
 s6@left[1:40]</code></pre>
-<pre><code>##  [1]  162 -869  833  626  103   -2   43   19   47  227   -4  205  564  171  457
-## [16]  838 -216   60   76 -623 -213  168 -746 -248  175 -512  -58  651  -85 -213
-## [31]  586   40 -407  371  -51 -587  -92   94 -527   40</code></pre>
+<pre><code>##  [1]  162 -869  833  626  103   -2   43   19   47  227   -4  205  564  171  457  838 -216   60   76
+## [20] -623 -213  168 -746 -248  175 -512  -58  651  -85 -213  586   40 -407  371  -51 -587  -92   94
+## [39] -527   40</code></pre>
 <p> </p>
 <p>The number of samples is given by the duration and the sampling rate.</p>
 <p> </p>
@@ -580,12 +595,12 @@ s7</code></pre>
 <pre class="r"><code>library(phonTools)</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;phonTools&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:tuneR&#39;:
-## 
-##     normalize, play</code></pre>
 <pre><code>## The following object is masked from &#39;package:seewave&#39;:
 ## 
 ##     preemphasis</code></pre>
+<pre><code>## The following objects are masked from &#39;package:tuneR&#39;:
+## 
+##     normalize, play</code></pre>
 <pre class="r"><code>s8 &lt;- loadsound(&quot;./examples/Phae.long1.wav&quot;)</code></pre>
 <pre><code>## Warning in readChar(soundfile, nchars = 8): truncating string with embedded nuls</code></pre>
 <pre class="r"><code>s8</code></pre>
@@ -711,33 +726,42 @@ listen(x, f = 16000, from = 0, to = 2)</code></pre>
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=es_ES.UTF-8    
-##  [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=es_ES.UTF-8   
-##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C               LC_TIME=es_CR.UTF-8       
+##  [4] LC_COLLATE=es_ES.UTF-8     LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=es_ES.UTF-8   
+##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+## [10] LC_TELEPHONE=C             LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] audio_0.1-10      phonTools_0.2-2.1 tuneR_1.3.3.1     seewave_2.1.8    
-## [5] Rraven_1.0.13     kableExtra_1.3.4  knitr_1.37        shiny_1.6.0      
+## [1] audio_0.1-10       phonTools_0.2-2.1  kableExtra_1.3.4   warbleR_1.1.27     NatureSounds_1.0.4
+## [6] knitr_1.37         seewave_2.2.0      tuneR_1.3.3.1     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_1.0.8        highr_0.9         bslib_0.2.5.1     compiler_4.1.1   
-##  [5] later_1.3.0       jquerylib_0.1.4   tools_4.1.1       digest_0.6.29    
-##  [9] viridisLite_0.4.0 jsonlite_1.7.2    evaluate_0.14     lifecycle_1.0.1  
-## [13] rlang_1.0.1       cli_3.1.0         rstudioapi_0.13   parallel_4.1.1   
-## [17] yaml_2.2.2        xfun_0.29         fastmap_1.1.0     stringr_1.4.0    
-## [21] httr_1.4.2        xml2_1.3.2        systemfonts_1.0.2 sass_0.4.0       
-## [25] webshot_0.5.2     svglite_2.0.0     glue_1.6.1        R6_2.5.1         
-## [29] pbapply_1.5-0     rmarkdown_2.10    monitoR_1.0.7     magrittr_2.0.2   
-## [33] MASS_7.3-54       scales_1.1.1      promises_1.2.0.1  ellipsis_0.3.2   
-## [37] htmltools_0.5.2   rsconnect_0.8.24  rvest_1.0.1       colorspace_2.0-2 
-## [41] mime_0.11         xtable_1.8-4      httpuv_1.6.2      stringi_1.7.6    
-## [45] signal_0.7-7      munsell_0.5.0     cachem_1.0.6</code></pre>
+##  [1] bitops_1.0-7         fs_1.5.0             monitoR_1.0.7        usethis_2.0.1       
+##  [5] devtools_2.4.2       webshot_0.5.2        httr_1.4.2           rprojroot_2.0.2     
+##  [9] Deriv_4.1.3          tools_4.1.1          bslib_0.2.5.1        utf8_1.2.2          
+## [13] R6_2.5.1             ohun_0.1.0           DBI_1.1.1            colorspace_2.0-3    
+## [17] withr_2.5.0          gridExtra_2.3        tidyselect_1.1.1     prettyunits_1.1.1   
+## [21] processx_3.5.2       moments_0.14         bioacoustics_0.2.8   compiler_4.1.1      
+## [25] soundgen_2.2.0       cli_3.2.0            rvest_1.0.1          formatR_1.11        
+## [29] xml2_1.3.2           microbenchmark_1.4-7 desc_1.3.0           sass_0.4.0          
+## [33] scales_1.1.1         callr_3.7.0          pbapply_1.5-0        proxy_0.4-26        
+## [37] dtw_1.22-3           systemfonts_1.0.2    stringr_1.4.0        digest_0.6.29       
+## [41] shinyBS_0.61         Sim.DiffProc_4.8     rmarkdown_2.10       svglite_2.0.0       
+## [45] pkgconfig_2.0.3      htmltools_0.5.2      sessioninfo_1.1.1    fastmap_1.1.0       
+## [49] highr_0.9            rlang_1.0.2          rstudioapi_0.13      jquerylib_0.1.4     
+## [53] generics_0.1.0       farver_2.1.0         jsonlite_1.7.2       dplyr_1.0.7         
+## [57] RCurl_1.98-1.6       magrittr_2.0.2       Rcpp_1.0.8           munsell_0.5.0       
+## [61] fansi_1.0.2          viridis_0.6.2        lifecycle_1.0.1      stringi_1.7.6       
+## [65] yaml_2.3.5           MASS_7.3-54          pkgbuild_1.2.0       grid_4.1.1          
+## [69] parallel_4.1.1       crayon_1.5.0         ps_1.6.0             pillar_1.7.0        
+## [73] rjson_0.2.21         fftw_1.0-6.1         pkgload_1.2.1        glue_1.6.2          
+## [77] evaluate_0.15        remotes_2.4.0        vctrs_0.3.8          testthat_3.0.4      
+## [81] gtable_0.3.0         purrr_0.3.4          assertthat_0.2.1     cachem_1.0.6        
+## [85] ggplot2_3.3.5        xfun_0.30            viridisLite_0.4.0    signal_0.7-7        
+## [89] tibble_3.1.6         memoise_2.0.0        Rraven_1.0.13        ellipsis_0.3.2</code></pre>
 </div>
 </div>
 

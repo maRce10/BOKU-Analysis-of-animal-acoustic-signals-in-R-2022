@@ -18,7 +18,15 @@ navbar:
       - text: "Annotations"
         href: annotations.html
       - text: "Intro to warbleR"
-        href: intro_to_warbler.html        
+        href: intro_to_warbler.html 
+      - text: "ohun: automatic detection"
+        href: ohun.html
+      - text: "Measure acoustic structure"
+        href: measure_acoustic_structure.html
+      - text: "Comparing measuring methods"
+        href: comparing_methods.html        
+      - text: "Quality checks"
+        href: quality_checks.html        
     - text: "About"
       href: about.html
 

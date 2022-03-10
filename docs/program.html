@@ -266,6 +266,21 @@ $(document).ready(function () {
     <li>
       <a href="annotations.html">Annotations</a>
     </li>
+    <li>
+      <a href="intro_to_warbler.html">Intro to warbleR</a>
+    </li>
+    <li>
+      <a href="ohun.html">ohun: automatic detection</a>
+    </li>
+    <li>
+      <a href="measure_acoustic_structure.html">Measure acoustic structure</a>
+    </li>
+    <li>
+      <a href="comparing_methods.html">Comparing measuring methods</a>
+    </li>
+    <li>
+      <a href="quality_checks.html">Quality checks</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -330,7 +345,7 @@ $(document).ready(function () {
 <li>Modify-optimize visualization parameters</li>
 <li>Annotate signals</li>
 </ul>
-<p><strong>Intro to warbleR</strong> <a href="https://ndownloader.figshare.com/files/27066653" class="btn btn-warning btn-xs" role="button">Intro to warbleR</a></p>
+<p><strong>Intro to warbleR</strong> <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/intro_to_warbler.html" class="btn btn-warning btn-xs" role="button">Intro to warbleR</a></p>
 <ul>
 <li>Intro to warbleR</li>
 <li>Selection tables</li>
@@ -338,13 +353,14 @@ $(document).ready(function () {
 <li>Selection table manipulation</li>
 <li>warbleR functions and the bioacoustics analysis workflow</li>
 </ul>
-<p><strong>Automatic detection</strong> <a href="https://ndownloader.figshare.com/files/27242135" class="btn btn-warning btn-xs" role="button">Automatic detection</a></p>
+<p><strong>Automatic detection</strong> <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/ohun.html" class="btn btn-warning btn-xs" role="button">Automatic detection</a></p>
 <ul>
-<li>Detection using amplitude, frequency, and time filters (<code>auto_detec()</code>)</li>
-<li>Detection using cross-correlation (<code>cross_correlation()</code>)</li>
-<li>Frequency range detection (<code>freq_range()</code> and <code>freq_range_detec()</code>)</li>
+<li>ohun package for optimize acoustic signal detection</li>
+<li>Detection using amplitude, frequency, and time filters (<code>ohun::energy_detector()</code>)</li>
+<li>Detection using cross-correlation (<code>ohun::template_detector()</code>)</li>
+<li>Frequency range detection (<code>warbleR::freq_range()</code> and <code>warbleR::freq_range_detec()</code>)</li>
 </ul>
-<p><strong>Quantifying acoustic signal structure</strong> <a href="https://ndownloader.figshare.com/files/27232883" class="btn btn-warning btn-xs" role="button">Quantify structure</a></p>
+<p><strong>Quantifying acoustic signal structure</strong> <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/measure_acoustic_structure.html" class="btn btn-warning btn-xs" role="button">Quantify structure</a></p>
 <ul>
 <li>Spectro-temporal measurements (<code>spectro_analysis()</code>)</li>
 <li>Parameter description</li>
@@ -361,11 +377,11 @@ $(document).ready(function () {
 <li>Creating ‘song’ spectrograms (<code>full_spectrograms()</code>, <code>spectrograms()</code>)</li>
 <li>‘Song’ parameters (<code>song_analysis()</code>)</li>
 </ul>
-<p><strong>Choosing the right method for quantifying structure</strong> <a href="https://ndownloader.figshare.com/files/27262301" class="btn btn-warning btn-xs" role="button">Compare methods</a></p>
+<p><strong>Choosing the right method for quantifying structure</strong> <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/comparing_methods.html" class="btn btn-warning btn-xs" role="button">Comparing methods</a></p>
 <ul>
 <li>Compare different methods for quantifying structure (<code>compare_methods()</code>)</li>
 </ul>
-<p><strong>Quality control in recordings and annotation</strong> <a href="https://ndownloader.figshare.com/files/27263603" class="btn btn-warning btn-xs" role="button">Quality checks</a></p>
+<p><strong>Quality control in recordings and annotation</strong> <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/quality_checks.html" class="btn btn-warning btn-xs" role="button">Quality checks</a></p>
 <ul>
 <li>Check and modify sound file format (<code>check_wavs()</code>, <code>info_wavs()</code>, <code>duration_wavs()</code>, <code>mp32wav()</code> y <code>fix_wavs()</code>)</li>
 <li>Tuning spectrogram parameters (<code>tweak_spectro()</code>)</li>
