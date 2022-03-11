@@ -334,6 +334,9 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="introduction.html">Introduction</a>
+    </li>
+    <li>
       <a href="r_basics.html">R basics</a>
     </li>
     <li>
@@ -349,10 +352,10 @@ div.tocify {
       <a href="annotations.html">Annotations</a>
     </li>
     <li>
-      <a href="intro_to_warbler.html">Intro to warbleR</a>
+      <a href="ohun.html">ohun: automatic detection</a>
     </li>
     <li>
-      <a href="ohun.html">ohun: automatic detection</a>
+      <a href="intro_to_warbler.html">Intro to warbleR</a>
     </li>
     <li>
       <a href="measure_acoustic_structure.html">Measure acoustic structure</a>
@@ -486,24 +489,26 @@ lbh_reference</code></pre>
 <p>This is a ‘selection table’, an object class provided by the package <a href="https://CRAN.R-project.org/package=warbleR">warbleR</a> (see <a href="https://marce10.github.io/warbleR/reference/selection_table.html"><code>selection_table()</code></a> for details). Selection tables are basically data frames in which the contained information has been double-checked (using warbleR’s <a href="https://marce10.github.io/warbleR/reference/check_sels.html"><code>check_sels()</code></a>). But they behave pretty much as data frames and can be easily converted to data frames:</p>
 <pre class="r"><code># convert to data frame
 as.data.frame(lbh_reference)</code></pre>
-<pre><code>##    sound.files selec    start      end bottom.freq top.freq
-## 1     lbh2.wav     1 0.109161 0.248245      2.2954   8.9382
-## 2     lbh2.wav     2 0.654921 0.788723      2.2954   9.0426
-## 3     lbh2.wav     3 1.265850 1.385568      2.2606   9.0774
-## 4     lbh2.wav     4 1.869705 2.005268      2.1911   8.9035
-## 5     lbh2.wav     5 2.441769 2.580853      2.1563   8.6600
-## 6     lbh2.wav     6 3.036825 3.168867      2.2259   8.9382
-## 7     lbh2.wav     7 3.628617 3.746574      2.3302   8.6252
-## 8     lbh2.wav     8 4.153288 4.281809      2.2954   8.4861
-## 9     lbh2.wav     9 4.723673 4.860996      2.3650   8.6948
-## 10    lbh1.wav    10 0.088118 0.236005      1.9824   8.4861
-## 11    lbh1.wav    11 0.572290 0.720177      2.0520   9.5295
-## 12    lbh1.wav    12 1.056417 1.197261      2.0868   8.4861
-## 13    lbh1.wav    13 1.711338 1.868027      1.9824   8.5905
-## 14    lbh1.wav    14 2.190249 2.341657      2.0520   8.5209
-## 15    lbh1.wav    15 2.697143 2.853832      1.9824   9.2513
-## 16    lbh1.wav    16 3.181315 3.334483      1.9129   8.4861
-##  [ reached &#39;max&#39; / getOption(&quot;max.print&quot;) -- omitted 3 rows ]</code></pre>
+<pre><code>##    sound.files selec    start       end bottom.freq top.freq
+## 1     lbh2.wav     1 0.109161 0.2482449      2.2954   8.9382
+## 2     lbh2.wav     2 0.654921 0.7887232      2.2954   9.0426
+## 3     lbh2.wav     3 1.265850 1.3855678      2.2606   9.0774
+## 4     lbh2.wav     4 1.869705 2.0052678      2.1911   8.9035
+## 5     lbh2.wav     5 2.441769 2.5808529      2.1563   8.6600
+## 6     lbh2.wav     6 3.036825 3.1688667      2.2259   8.9382
+## 7     lbh2.wav     7 3.628617 3.7465742      2.3302   8.6252
+## 8     lbh2.wav     8 4.153288 4.2818085      2.2954   8.4861
+## 9     lbh2.wav     9 4.723673 4.8609963      2.3650   8.6948
+## 10    lbh1.wav    10 0.088118 0.2360047      1.9824   8.4861
+## 11    lbh1.wav    11 0.572290 0.7201767      2.0520   9.5295
+## 12    lbh1.wav    12 1.056417 1.1972614      2.0868   8.4861
+## 13    lbh1.wav    13 1.711338 1.8680274      1.9824   8.5905
+## 14    lbh1.wav    14 2.190249 2.3416568      2.0520   8.5209
+## 15    lbh1.wav    15 2.697143 2.8538324      1.9824   9.2513
+## 16    lbh1.wav    16 3.181315 3.3344833      1.9129   8.4861
+## 17    lbh1.wav    17 3.663719 3.8133662      1.8781   8.6948
+## 18    lbh1.wav    18 4.140816 4.3045477      1.8433   9.2165
+## 19    lbh1.wav    19 4.626712 4.7851620      1.8085   8.9035</code></pre>
 <p> </p>
 <p>All <a href="https://github.com/maRce10/ohun">ohun</a> functions that work with this kind of data can take both selection tables and data frames. Spectrograms with highlighted signals from a selection table can be plotted with the function <code>label_spectro()</code> (this function only plots one wave object at the time):</p>
 <pre class="r"><code># save sound file
@@ -513,18 +518,19 @@ writeWave(lbh1, file.path(tempdir(), &quot;lbh1.wav&quot;))
 writeWave(lbh2, file.path(tempdir(), &quot;lbh2.wav&quot;))
 
 # print spectrogram
-label_spectro(wave = lbh1, reference = lbh_reference[lbh_reference$sound.files == &quot;lbh1.wav&quot;, ], hop.size = 10,
-    ovlp = 50, flim = c(1, 10))</code></pre>
+label_spectro(wave = lbh1, reference = lbh_reference[lbh_reference$sound.files ==
+    &quot;lbh1.wav&quot;, ], hop.size = 10, ovlp = 50, flim = c(1, 10))</code></pre>
 <p><img src="ohun_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
 <pre class="r"><code># print spectrogram
-label_spectro(wave = lbh2, reference = lbh_reference[lbh_reference$sound.files == &quot;lbh2.wav&quot;, ], hop.size = 10,
-    ovlp = 50, flim = c(1, 10))</code></pre>
+label_spectro(wave = lbh2, reference = lbh_reference[lbh_reference$sound.files ==
+    &quot;lbh2.wav&quot;, ], hop.size = 10, ovlp = 50, flim = c(1, 10))</code></pre>
 <p><img src="ohun_files/figure-html/unnamed-chunk-4-2.png" width="960" /></p>
 <p>The function <code>diagnose_detection()</code> evaluates the performance of a detection routine by comparing it to a reference table. For instance, a perfect detection is given by comparing <code>lbh_reference</code> to itself:</p>
 <pre class="r"><code>lbh1_reference &lt;- lbh_reference[lbh_reference$sound.files == &quot;lbh1.wav&quot;, ]
 
 # diagnose
-diagnose_detection(reference = lbh1_reference, detection = lbh1_reference)[, c(1:3, 7:9)]</code></pre>
+diagnose_detection(reference = lbh1_reference, detection = lbh1_reference)[, c(1:3,
+    7:9)]</code></pre>
 <pre><code>##   true.positives false.positives false.negatives recall precision f1.score
 ## 1             10               0               0      1         1        1</code></pre>
 <p> </p>
@@ -533,23 +539,25 @@ diagnose_detection(reference = lbh1_reference, detection = lbh1_reference)[, c(1
 lbh1_detection &lt;- lbh1_reference[3:9, ]
 
 # print spectrogram
-label_spectro(wave = lbh1, reference = lbh1_reference, detection = lbh1_detection, hop.size = 10, ovlp = 50,
-    flim = c(1, 10))</code></pre>
+label_spectro(wave = lbh1, reference = lbh1_reference, detection = lbh1_detection,
+    hop.size = 10, ovlp = 50, flim = c(1, 10))</code></pre>
 <p><img src="ohun_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
 <pre class="r"><code># diagnose
-diagnose_detection(reference = lbh1_reference, detection = lbh1_detection)[, c(1:3, 7:9)]</code></pre>
-<pre><code>##   true.positives false.positives false.negatives recall precision f1.score
-## 1              7               0               3    0.7         1 0.823529</code></pre>
+diagnose_detection(reference = lbh1_reference, detection = lbh1_detection)[, c(1:3,
+    7:9)]</code></pre>
+<pre><code>##   true.positives false.positives false.negatives recall precision  f1.score
+## 1              7               0               3    0.7         1 0.8235294</code></pre>
 <p> </p>
 <p>Having some additional signals not in reference will do the opposite, reducing precision but not recall. We can do this simply by switching the tables:</p>
 <pre class="r"><code># print spectrogram
-label_spectro(wave = lbh1, detection = lbh1_reference, reference = lbh1_detection, hop.size = 10, ovlp = 50,
-    flim = c(1, 10))</code></pre>
+label_spectro(wave = lbh1, detection = lbh1_reference, reference = lbh1_detection,
+    hop.size = 10, ovlp = 50, flim = c(1, 10))</code></pre>
 <p><img src="ohun_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
 <pre class="r"><code># diagnose
-diagnose_detection(reference = lbh1_detection, detection = lbh1_reference)[, c(1:3, 7:9)]</code></pre>
-<pre><code>##   true.positives false.positives false.negatives recall precision f1.score
-## 1              7               3               0      1       0.7 0.823529</code></pre>
+diagnose_detection(reference = lbh1_detection, detection = lbh1_reference)[, c(1:3,
+    7:9)]</code></pre>
+<pre><code>##   true.positives false.positives false.negatives recall precision  f1.score
+## 1              7               3               0      1       0.7 0.8235294</code></pre>
 <p> </p>
 <p>The function offers three additional diagnose metrics:</p>
 <ul>
@@ -563,47 +571,52 @@ lbh1_detection &lt;- lbh1_reference
 
 # add &#39;noise&#39; to start
 set.seed(18)
-lbh1_detection$start &lt;- lbh1_detection$start + rnorm(nrow(lbh1_detection), mean = 0, sd = 0.1)
+lbh1_detection$start &lt;- lbh1_detection$start + rnorm(nrow(lbh1_detection), mean = 0,
+    sd = 0.1)
 
 ## print spectrogram
-label_spectro(wave = lbh1, reference = lbh1_reference, detection = lbh1_detection, hop.size = 10, ovlp = 50,
-    flim = c(1, 10))</code></pre>
+label_spectro(wave = lbh1, reference = lbh1_reference, detection = lbh1_detection,
+    hop.size = 10, ovlp = 50, flim = c(1, 10))</code></pre>
 <p><img src="ohun_files/figure-html/unnamed-chunk-8-1.png" width="960" /></p>
 <pre class="r"><code># diagnose
 diagnose_detection(reference = lbh1_reference, detection = lbh1_detection)</code></pre>
-<pre><code>##   true.positives false.positives false.negatives split.positives merged.positives
-## 1             10               0               0               0                0
-##   overlap.to.true.positives recall precision f1.score
-## 1                   0.52807      1         1        1</code></pre>
+<pre><code>##   true.positives false.positives false.negatives split.positives
+## 1             10               0               0               0
+##   merged.positives overlap.to.true.positives recall precision f1.score
+## 1                0                 0.5280701      1         1        1</code></pre>
 <p> </p>
 <p>In addition, the following diagnostics related to the duration of the signals can also be returned by setting <code>time.diagnostics = TRUE</code>. Here we tweak the reference and detection data just to have some false positives and false negatives:</p>
 <pre class="r"><code># diagnose with time diagnostics
-diagnose_detection(reference = lbh1_reference[-1, ], detection = lbh1_detection[-10, ], time.diagnostics = TRUE)</code></pre>
-<pre><code>##   true.positives false.positives false.negatives split.positives merged.positives
-## 1              8               1               1               0                0
-##   overlap.to.true.positives mean.duration.true.positives mean.duration.false.positives
-## 1                   0.61032                      0.13875                     0.0552407
-##   mean.duration.false.negatives proportional.duration.true.positives   recall precision f1.score
-## 1                       0.15845                                    1 0.888889  0.888889 0.888889</code></pre>
+diagnose_detection(reference = lbh1_reference[-1, ], detection = lbh1_detection[-10,
+    ], time.diagnostics = TRUE)</code></pre>
+<pre><code>##   true.positives false.positives false.negatives split.positives
+## 1              8               1               1               0
+##   merged.positives overlap.to.true.positives mean.duration.true.positives
+## 1                0                 0.6103203                    0.1387504
+##   mean.duration.false.positives mean.duration.false.negatives
+## 1                    0.05524073                       0.15845
+##   proportional.duration.true.positives    recall precision  f1.score
+## 1                                    1 0.8888889 0.8888889 0.8888889</code></pre>
 <p> </p>
 <p>These additional metrics can be used to further filter out undesired signals based on their duration (for instance in a energy-based detection as in <code>energy_detector()</code>, explained below).</p>
 <p>Diagnostics can also be detailed by sound file:</p>
 <pre class="r"><code># diagnose by sound file
-diagnostic &lt;- diagnose_detection(reference = lbh1_reference, detection = lbh1_detection, by.sound.file = TRUE)
+diagnostic &lt;- diagnose_detection(reference = lbh1_reference, detection = lbh1_detection,
+    by.sound.file = TRUE)
 
 diagnostic</code></pre>
-<pre><code>##   sound.files true.positives false.positives false.negatives split.positives merged.positives
-## 1    lbh1.wav             10               0               0               0                0
-##   overlap.to.true.positives recall precision f1.score
-## 1                   0.52807      1         1        1</code></pre>
+<pre><code>##   sound.files true.positives false.positives false.negatives split.positives
+## 1    lbh1.wav             10               0               0               0
+##   merged.positives overlap.to.true.positives recall precision f1.score
+## 1                0                 0.5280701      1         1        1</code></pre>
 <p> </p>
 <p>These diagnostics can be summarized (as in the default <code>diagnose_detection()</code> output) with the function <code>summarize_diagnostic()</code>:</p>
 <pre class="r"><code># summarize
 summarize_diagnostic(diagnostic)</code></pre>
-<pre><code>##   true.positives false.positives false.negatives split.positives merged.positives
-## 1             10               0               0               0                0
-##   overlap.to.true.positives recall precision f1.score
-## 1                   0.52807      1         1        1</code></pre>
+<pre><code>##   true.positives false.positives false.negatives split.positives
+## 1             10               0               0               0
+##   merged.positives overlap.to.true.positives recall precision f1.score
+## 1                0                 0.5280701      1         1        1</code></pre>
 <p> </p>
 </div>
 <div id="detecting-signals-with-ohun" class="section level1">
@@ -612,8 +625,8 @@ summarize_diagnostic(diagnostic)</code></pre>
 <h2>Energy-based detection</h2>
 <p>This detector uses amplitude envelopes to infer the position of signals. Amplitude envelopes are representations of the variation in energy through time. The following code plots an amplitude envelope along with the spectrogram for the example data <code>lbh1</code>:</p>
 <pre class="r"><code># plot spectrogram and envelope
-label_spectro(wave = cutw(lbh1, from = 0, to = 1.5, output = &quot;Wave&quot;), ovlp = 90, hop.size = 10, flim = c(0,
-    10), envelope = TRUE)</code></pre>
+label_spectro(wave = cutw(lbh1, from = 0, to = 1.5, output = &quot;Wave&quot;), ovlp = 90,
+    hop.size = 10, flim = c(0, 10), envelope = TRUE)</code></pre>
 <p><img src="ohun_files/figure-html/unnamed-chunk-12-1.png" width="960" />  </p>
 <p>This type of detector doesn’t require highly stereotyped signals, although they work better on high quality recordings in which the amplitude of target signals is higher than the background noise (i.e. high signal-to-noise ratio). The function <code>ernergy_detector()</code> performs this type of detection.</p>
 <p> </p>
@@ -627,9 +640,9 @@ durs &lt;- rep(c(0.3, 1), 5)
 
 # Creating simulated song
 set.seed(12)
-simulated_1 &lt;- warbleR::simulate_songs(n = 10, durs = durs, freqs = 5, sig2 = 0.01, gaps = 0.5, harms = 1,
-    bgn = 0.1, path = tempdir(), file.name = &quot;simulated_1&quot;, selec.table = TRUE, shape = &quot;cos&quot;, fin = 0.3,
-    fout = 0.35, samp.rate = 18)$wave</code></pre>
+simulated_1 &lt;- warbleR::simulate_songs(n = 10, durs = durs, freqs = 5, sig2 = 0.01,
+    gaps = 0.5, harms = 1, bgn = 0.1, path = tempdir(), file.name = &quot;simulated_1&quot;,
+    selec.table = TRUE, shape = &quot;cos&quot;, fin = 0.3, fout = 0.35, samp.rate = 18)$wave</code></pre>
 <p> </p>
 <p>The function call saves a ‘.wav’ sound file in a temporary directory (<code>tempdir()</code>) and also returns a <code>wave</code> object in the R environment. This outputs will be used to run energy-based detection and creating plots, respectively. This is how the spectrogram and amplitude envelope of the simulated recording look like:</p>
 <pre class="r"><code># plot spectrogram and envelope
@@ -637,7 +650,8 @@ label_spectro(wave = simulated_1, env = TRUE, fastdisp = TRUE)</code></pre>
 <p><img src="ohun_files/figure-html/unnamed-chunk-14-1.png" width="960" />  </p>
 <p>Note that the amplitude envelope shows a high signal-to-noise ratio of the signals, which is ideal for energy-based detection. This can be conducted using <code>ernergy_detector()</code> as follows:</p>
 <pre class="r"><code># run detection
-detection &lt;- energy_detector(files = &quot;simulated_1.wav&quot;, bp = c(2, 8), threshold = 50, smooth = 150, path = tempdir())
+detection &lt;- energy_detector(files = &quot;simulated_1.wav&quot;, bp = c(2, 8), threshold = 50,
+    smooth = 150, path = tempdir())
 
 # plot spectrogram and envelope
 label_spectro(wave = simulated_1, envelope = TRUE, detection = detection, threshold = 50)</code></pre>
@@ -665,31 +679,32 @@ label_spectro(wave = simulated_1, envelope = TRUE, detection = detection, thresh
 ## created by warbleR 1.1.27</code></pre>
 <p>Now we will make use of some additional arguments to filter out specific signals based on their structural features. For instance we can use the argument <code>minimum.duration</code> to provide a time treshold (in ms) to exclude short signals and keep only the longest signals:</p>
 <pre class="r"><code># run detection
-detection &lt;- energy_detector(files = &quot;simulated_1.wav&quot;, bp = c(1, 8), threshold = 50, min.duration = 500,
-    smooth = 150, path = tempdir())
+detection &lt;- energy_detector(files = &quot;simulated_1.wav&quot;, bp = c(1, 8), threshold = 50,
+    min.duration = 500, smooth = 150, path = tempdir())
 
 # plot spectrogram
 label_spectro(wave = simulated_1, detection = detection)</code></pre>
 <p><img src="ohun_files/figure-html/unnamed-chunk-17-1.png" width="960" />  </p>
 <p>We can use the argument <code>max.duration</code> (also in ms) to exclude long signals and keep the short ones:</p>
 <pre class="r"><code># run detection
-detection &lt;- energy_detector(files = &quot;simulated_1.wav&quot;, bp = c(1, 8), threshold = 50, smooth = 150, max.duration = 500,
-    path = tempdir())
+detection &lt;- energy_detector(files = &quot;simulated_1.wav&quot;, bp = c(1, 8), threshold = 50,
+    smooth = 150, max.duration = 500, path = tempdir())
 
 # plot spectrogram
 label_spectro(wave = simulated_1, detection = detection)</code></pre>
 <p><img src="ohun_files/figure-html/unnamed-chunk-18-1.png" width="960" />  </p>
 <p>We can also focus the detection on specific frequency ranges using the argument <code>bp</code> (bandpass). By setting <code>bp = c(5, 8)</code> only those signals found within that frequency range (5-8 kHz) will be detected, which excludes signals below 5 kHz:</p>
 <pre class="r"><code># Detecting
-detection &lt;- energy_detector(files = &quot;simulated_1.wav&quot;, bp = c(5, 8), threshold = 50, smooth = 150, path = tempdir())
+detection &lt;- energy_detector(files = &quot;simulated_1.wav&quot;, bp = c(5, 8), threshold = 50,
+    smooth = 150, path = tempdir())
 
 # plot spectrogram
 label_spectro(wave = simulated_1, detection = detection)</code></pre>
 <p><img src="ohun_files/figure-html/unnamed-chunk-19-1.png" width="960" />  </p>
 <p>The same logic can be applied to detect those signals found below 5 kHz. We just need to set the upper bound of the band pass filter below the range of the higher frequency signals (for instance <code>bp = (0, 6)</code>):</p>
 <pre class="r"><code># Detect
-detection &lt;- energy_detector(files = &quot;simulated_1.wav&quot;, bp = c(0, 6), threshold = 50, min.duration = 1,
-    smooth = 150, path = tempdir())
+detection &lt;- energy_detector(files = &quot;simulated_1.wav&quot;, bp = c(0, 6), threshold = 50,
+    min.duration = 1, smooth = 150, path = tempdir())
 
 # plot spectrogram
 label_spectro(wave = simulated_1, detection = detection)</code></pre>
@@ -701,9 +716,10 @@ set.seed(12)
 # Creating vector for duration
 durs &lt;- rep(c(0.3, 1), 5)
 
-sim_2 &lt;- sim_songs(n = 10, durs = durs, freqs = 5, sig2 = 0.01, gaps = 0.5, harms = 1, bgn = 0.1, path = tempdir(),
-    file.name = &quot;simulated_2&quot;, selec.table = TRUE, shape = &quot;cos&quot;, fin = 0.3, fout = 0.35, samp.rate = 18,
-    am.amps = c(1, 2, 3, 2, 0.1, 2, 3, 3, 2, 1))
+sim_2 &lt;- sim_songs(n = 10, durs = durs, freqs = 5, sig2 = 0.01, gaps = 0.5, harms = 1,
+    bgn = 0.1, path = tempdir(), file.name = &quot;simulated_2&quot;, selec.table = TRUE, shape = &quot;cos&quot;,
+    fin = 0.3, fout = 0.35, samp.rate = 18, am.amps = c(1, 2, 3, 2, 0.1, 2, 3, 3,
+        2, 1))
 
 # extract wave object and selection table
 simulated_2 &lt;- sim_2$wave
@@ -711,48 +727,53 @@ sim2_sel_table &lt;- sim_2$selec.table
 
 # plot spectrogram
 label_spectro(wave = simulated_2, envelope = TRUE)</code></pre>
-<p><img src="ohun_files/figure-html/unnamed-chunk-21-1.png" width="960" />  </p>
+<p><img src="ohun_files/figure-html/unnamed-chunk-22-1.png" width="960" />  </p>
 <p>When signals have strong amplitude modulation they can be split during detection:</p>
 <pre class="r"><code># detect sounds
 detection &lt;- energy_detector(files = &quot;simulated_2.wav&quot;, threshold = 50, path = tempdir())
 
 # plot spectrogram
 label_spectro(wave = simulated_2, envelope = TRUE, threshold = 50, detection = detection)</code></pre>
-<p><img src="ohun_files/figure-html/unnamed-chunk-22-1.png" width="960" />  </p>
+<p><img src="ohun_files/figure-html/unnamed-chunk-23-1.png" width="960" />  </p>
 <p>There are two arguments that can deal with this: <code>holdtime</code> and <code>smooth</code>. <code>hold.time</code> allows to merge split signals that are found within a given time range (in ms). This time range should be high enough to merge things belonging to the same signal but not too high so it merges different signals. For this example a <code>hold.time</code> of 200 ms can do the trick (we know gaps between signals are ~0.5 s long):</p>
 <pre class="r"><code># detect sounds
-detection &lt;- energy_detector(files = &quot;simulated_2.wav&quot;, threshold = 50, min.duration = 1, path = tempdir(),
-    hold.time = 200)
+detection &lt;- energy_detector(files = &quot;simulated_2.wav&quot;, threshold = 50, min.duration = 1,
+    path = tempdir(), hold.time = 200)
 
 # plot spectrogram
 label_spectro(wave = simulated_2, envelope = TRUE, threshold = 50, detection = detection)</code></pre>
-<p><img src="ohun_files/figure-html/unnamed-chunk-23-1.png" width="960" />  </p>
+<p><img src="ohun_files/figure-html/unnamed-chunk-24-1.png" width="960" />  </p>
 <p><code>smooth</code> works by merging the amplitude envelope ‘hills’ of the split signals themselves. It smooths envelopes by applying a sliding window averaging of amplitude values. It’s given in ms of the window size. A <code>smooth</code> of 350 ms can merged back split signals from our example:</p>
 <pre class="r"><code># detect sounds
-detection &lt;- energy_detector(files = &quot;simulated_2.wav&quot;, threshold = 50, min.duration = 1, path = tempdir(),
-    smooth = 350)
+detection &lt;- energy_detector(files = &quot;simulated_2.wav&quot;, threshold = 50, min.duration = 1,
+    path = tempdir(), smooth = 350)
 
 # plot spectrogram
-label_spectro(wave = simulated_2, envelope = TRUE, threshold = 50, detection = detection, smooth = 350)</code></pre>
-<p><img src="ohun_files/figure-html/unnamed-chunk-24-1.png" width="960" />  </p>
+label_spectro(wave = simulated_2, envelope = TRUE, threshold = 50, detection = detection,
+    smooth = 350)</code></pre>
+<p><img src="ohun_files/figure-html/unnamed-chunk-25-1.png" width="960" />  </p>
 <p>The function has some additional arguments for further filtering detections (<code>peak.amplitude</code>) and speeding up analysis (<code>thinning</code> and <code>parallel</code>).</p>
 <p> </p>
 </div>
 <div id="optimizing-energy-based-detection" class="section level3">
 <h3>Optimizing energy-based detection</h3>
 <p>This last example using <code>smooth</code> can be used to showcase how the tunning parameters can be optimized. As explained above, to do this we need a reference table that contains the time position of the target signals. The function <code>optimize_energy_detector()</code> can be used finding the optimal parameter values. We must provide the range of parameter values that will be evaluated:</p>
-<pre class="r"><code>optim_detection &lt;- optimize_energy_detector(reference = sim2_sel_table, files = &quot;simulated_2.wav&quot;, threshold = 50,
-    min.duration = 1, path = tempdir(), smooth = c(100, 250, 350))</code></pre>
+<pre class="r"><code>optim_detection &lt;- optimize_energy_detector(reference = sim2_sel_table, files = &quot;simulated_2.wav&quot;,
+    threshold = 50, min.duration = 1, path = tempdir(), smooth = c(100, 250, 350))</code></pre>
 <pre><code>## 3 combinations will be evaluated:</code></pre>
 <pre class="r"><code>optim_detection[, c(1, 2:5, 7:12, 17:18)]</code></pre>
-<pre><code>##   threshold peak.amplitude smooth hold.time min.duration thinning true.positives false.positives
-## 1        50              0    100         0            1        1             10               0
-## 2        50              0    250         0            1        1             10               0
-## 3        50              0    350         0            1        1             10               0
-##   false.negatives split.positives merged.positives proportional.duration.true.positives duty.cycle
-## 1               0              10                0                              1.00000   0.371460
-## 2               0               5                0                              1.17949   0.355520
-## 3               0               0                0                              1.00000   0.444271</code></pre>
+<pre><code>##   threshold peak.amplitude smooth hold.time min.duration thinning
+## 1        50              0    100         0            1        1
+## 2        50              0    250         0            1        1
+## 3        50              0    350         0            1        1
+##   true.positives false.positives false.negatives split.positives
+## 1             10               0               0              10
+## 2             10               0               0               5
+## 3             10               0               0               0
+##   merged.positives proportional.duration.true.positives duty.cycle
+## 1                0                             1.000000  0.3714601
+## 2                0                             1.179487  0.3555202
+## 3                0                             1.000000  0.4442706</code></pre>
 <p> </p>
 <p>The output contains the combination of parameters used at each iteration as well as the corresponding diagnose indices. In this case all combinations generate a good detection (recall &amp; precision = 1). However, only the routine with the highest <code>smooth</code> (last row) has no split signals (‘split.positive’ column). It also shows a better overlap to the reference signals (‘overlap.to.true.positives’ closer to 1).</p>
 <p>In addition, there are two complementary functions for optimizing energy-based detection routines: <code>feature_reference()</code> and <code>merge_overlaps()</code>. <code>feature_reference()</code> allow user to get a sense of the time and frequency characteristics of a reference table. This information can be used to determine the range of tuning parameter values during optimization. This is the output of the function applied to <code>lbh_reference</code>:</p>
@@ -761,7 +782,7 @@ label_spectro(wave = simulated_2, envelope = TRUE, threshold = 50, detection = d
 ## sel.duration   117.96 142.60 163.73
 ## gap.duration   624.97 680.92 811.61
 ## duty.cycle       0.24   0.27   0.31
-## peak.amplitude  46.87  54.82  61.86
+## peak.amplitude  47.74  55.56  62.01
 ## bottom.freq      1.81   2.11   2.37
 ## top.freq         8.49   8.82   9.53</code></pre>
 <p> </p>
@@ -781,7 +802,7 @@ label_spectro(wave = simulated_2, envelope = TRUE, threshold = 50, detection = d
 <p>The function <code>get_templates()</code> can help you find a template closer to the average acoustic structure of the signals in a reference table. This is done by finding the signals closer to the centroid of the acoustic space. When the acoustic space is not supplied (‘acoustic.space’ argument) the function estimates it by measuring several acoustic parameters using the function <a href="https://marce10.github.io/warbleR/reference/spectro_analysis.html"><code>spectro_analysis()</code></a> from <a href="https://marce10.github.io/warbleR"><code>warbleR</code></a>) and summarizing it with Principal Component Analysis (after z-transforming parameters). If only 1 template is required the function returns the signal closest to the acoustic space centroid. The rationale here is that a signal closest to the average signal structure is more likely to share structural features with most signals across the acoustic space than a signal in the periphery of the space. These ‘mean structure’ templates can be obtained as follows:</p>
 <pre class="r"><code># get mean structure template
 template &lt;- get_templates(reference = lbh1_reference, path = tempdir())</code></pre>
-<pre><code>## 4 principal components were kept which explained 0.81 of the variance</code></pre>
+<pre><code>## 3 principal components were kept which explained 0.73 of the variance</code></pre>
 <p> </p>
 <p>Then, the template can be used to detect similar signals in the example ‘lbh1’ data:</p>
 <pre class="r"><code># get correlations
@@ -828,58 +849,72 @@ detection</code></pre>
 <pre class="r"><code># plot spectrogram
 label_spectro(wave = lbh1, detection = detection, template.correlation = correlations$`lbh1.wav-10/lbh1.wav`,
     flim = c(0, 10), threshold = 0.4, hop.size = 10, ovlp = 50)</code></pre>
-<p><img src="ohun_files/figure-html/unnamed-chunk-31-1.png" width="960" />  </p>
+<p><img src="ohun_files/figure-html/unnamed-chunk-32-1.png" width="960" />  </p>
 <p>The performance can be evaluated using <code>diagnose_detection()</code>:</p>
 <pre class="r"><code># diagnose
 diagnose_detection(reference = lbh1_reference, detection = detection)</code></pre>
-<pre><code>##   true.positives false.positives false.negatives split.positives merged.positives
-## 1             10               1               0               5                0
-##   overlap.to.true.positives recall precision f1.score
-## 1                  0.861009      1  0.909091 0.952381</code></pre>
+<pre><code>##   true.positives false.positives false.negatives split.positives
+## 1             10               1               0               5
+##   merged.positives overlap.to.true.positives recall precision f1.score
+## 1                0                 0.8610092      1 0.9090909 0.952381</code></pre>
 <p> </p>
 <div id="optimizing-template-based-detection" class="section level3">
 <h3>Optimizing template-based detection</h3>
 <p>The function <code>optimize_template_detector()</code> allows to evaluate the performance under different correlation thresholds:</p>
 <pre class="r"><code># run optimization
-optimization &lt;- optimize_template_detector(template.correlations = correlations, reference = lbh1_reference,
-    threshold = seq(0.1, 0.5, 0.1))</code></pre>
+optimization &lt;- optimize_template_detector(template.correlations = correlations,
+    reference = lbh1_reference, threshold = seq(0.1, 0.5, 0.1))</code></pre>
 <pre><code>## 5 thresholds will be evaluated:</code></pre>
 <pre class="r"><code># print output
 optimization</code></pre>
-<pre><code>##   threshold   templates true.positives false.positives false.negatives split.positives
-## 1       0.1 lbh1.wav-16             10              43               0              10
-## 2       0.2 lbh1.wav-16             10              32               0              10
-## 3       0.3 lbh1.wav-16             10               3               0              10
-## 4       0.4 lbh1.wav-16             10               1               0               5
-## 5       0.5 lbh1.wav-16             10               0               0               0
-##   merged.positives overlap.to.true.positives recall precision f1.score
-## 1                0                  0.510086      1  0.188679 0.317460
-## 2                0                  0.582637      1  0.238095 0.384615
-## 3                0                  0.670376      1  0.769231 0.869565
-## 4                0                  0.861009      1  0.909091 0.952381
-## 5                0                  0.961109      1  1.000000 1.000000</code></pre>
+<pre><code>##   threshold   templates true.positives false.positives false.negatives
+## 1       0.1 lbh1.wav-16             10              43               0
+## 2       0.2 lbh1.wav-16             10              32               0
+## 3       0.3 lbh1.wav-16             10               3               0
+## 4       0.4 lbh1.wav-16             10               1               0
+## 5       0.5 lbh1.wav-16             10               0               0
+##   split.positives merged.positives overlap.to.true.positives recall precision
+## 1              10                0                 0.5100857      1 0.1886792
+## 2              10                0                 0.5826374      1 0.2380952
+## 3              10                0                 0.6703757      1 0.7692308
+## 4               5                0                 0.8610092      1 0.9090909
+## 5               0                0                 0.9611086      1 1.0000000
+##    f1.score
+## 1 0.3174603
+## 2 0.3846154
+## 3 0.8695652
+## 4 0.9523810
+## 5 1.0000000</code></pre>
 <p> </p>
 <p>Additional threshold values can be evaluated without having to run it all over again. We just need to supplied the output from the previous run with the argument <code>previous.output</code> (the same trick can be done when optimizing an energy-based detection):</p>
 <pre class="r"><code># run optimization
-optimize_template_detector(template.correlations = correlations, reference = lbh1_reference, threshold = c(0.6,
-    0.7), previous.output = optimization)</code></pre>
+optimize_template_detector(template.correlations = correlations, reference = lbh1_reference,
+    threshold = c(0.6, 0.7), previous.output = optimization)</code></pre>
 <pre><code>## 2 thresholds will be evaluated:</code></pre>
-<pre><code>##   threshold   templates true.positives false.positives false.negatives split.positives
-## 1       0.1 lbh1.wav-16             10              43               0              10
-## 2       0.2 lbh1.wav-16             10              32               0              10
-## 3       0.3 lbh1.wav-16             10               3               0              10
-## 4       0.4 lbh1.wav-16             10               1               0               5
-## 5       0.5 lbh1.wav-16             10               0               0               0
-## 6       0.6 lbh1.wav-16             10               0               0               0
-## 7       0.7 lbh1.wav-16              7               0               3               0
-##   merged.positives overlap.to.true.positives recall precision f1.score
-## 1                0                  0.510086    1.0  0.188679 0.317460
-## 2                0                  0.582637    1.0  0.238095 0.384615
-## 3                0                  0.670376    1.0  0.769231 0.869565
-## 4                0                  0.861009    1.0  0.909091 0.952381
-## 5                0                  0.961109    1.0  1.000000 1.000000
-## 6                0                  0.961109    1.0  1.000000 1.000000
-## 7                0                  0.954528    0.7  1.000000 0.823529</code></pre>
+<pre><code>##   threshold   templates true.positives false.positives false.negatives
+## 1       0.1 lbh1.wav-16             10              43               0
+## 2       0.2 lbh1.wav-16             10              32               0
+## 3       0.3 lbh1.wav-16             10               3               0
+## 4       0.4 lbh1.wav-16             10               1               0
+## 5       0.5 lbh1.wav-16             10               0               0
+## 6       0.6 lbh1.wav-16             10               0               0
+## 7       0.7 lbh1.wav-16              7               0               3
+##   split.positives merged.positives overlap.to.true.positives recall precision
+## 1              10                0                 0.5100857    1.0 0.1886792
+## 2              10                0                 0.5826374    1.0 0.2380952
+## 3              10                0                 0.6703757    1.0 0.7692308
+## 4               5                0                 0.8610092    1.0 0.9090909
+## 5               0                0                 0.9611086    1.0 1.0000000
+## 6               0                0                 0.9611086    1.0 1.0000000
+## 7               0                0                 0.9545278    0.7 1.0000000
+##    f1.score
+## 1 0.3174603
+## 2 0.3846154
+## 3 0.8695652
+## 4 0.9523810
+## 5 1.0000000
+## 6 1.0000000
+## 7 0.8235294</code></pre>
 <p> </p>
 <p>In this case several threshold values can achieved an optimal detection.</p>
 <p> </p>
@@ -888,8 +923,8 @@ optimize_template_detector(template.correlations = correlations, reference = lbh
 <h3>Detecting several templates</h3>
 <p>Several templates can be used within the same call. Here we correlate two templates on the two example sound files, taking one template from each sound file:</p>
 <pre class="r"><code># get correlations
-correlations &lt;- template_correlator(templates = lbh_reference[c(1, 10), ], files = c(&quot;lbh1.wav&quot;, &quot;lbh2.wav&quot;),
-    path = tempdir())
+correlations &lt;- template_correlator(templates = lbh_reference[c(1, 10), ], files = c(&quot;lbh1.wav&quot;,
+    &quot;lbh2.wav&quot;), path = tempdir())
 
 # run detection
 detection &lt;- template_detector(template.correlations = correlations, threshold = 0.5)</code></pre>
@@ -897,10 +932,10 @@ detection &lt;- template_detector(template.correlations = correlations, threshol
 <p>Note that in these cases we can get the same signal detected several times (duplicates), one by each template. We can check if that is the case just by diagnosing the detection:</p>
 <pre class="r"><code># diagnose
 diagnose_detection(reference = lbh_reference, detection = detection)</code></pre>
-<pre><code>##   true.positives false.positives false.negatives split.positives merged.positives
-## 1             19               0               0               4                0
-##   overlap.to.true.positives recall precision f1.score
-## 1                  0.956501      1         1        1</code></pre>
+<pre><code>##   true.positives false.positives false.negatives split.positives
+## 1             19               0               0               4
+##   merged.positives overlap.to.true.positives recall precision f1.score
+## 1                0                 0.9565014      1         1        1</code></pre>
 <p> </p>
 <p>Duplicates are shown as split positives. Fortunately, we can leave a single detected signal by leaving only those with the highest correlation. To do this we first need to label each row in the detection using <code>label_detection()</code> and then remove duplicates using <code>filter_detection()</code>:</p>
 <pre class="r"><code># labeling detection
@@ -917,10 +952,10 @@ filtered &lt;- filter_detection(detection = labeled, by = &quot;scores&quot;)
 
 # diagnose
 diagnose_detection(reference = lbh_reference, detection = filtered)</code></pre>
-<pre><code>##   true.positives false.positives false.negatives split.positives merged.positives
-## 1             19               0               0               0                0
-##   overlap.to.true.positives recall precision f1.score
-## 1                  0.950152      1         1        1</code></pre>
+<pre><code>##   true.positives false.positives false.negatives split.positives
+## 1             19               0               0               0
+##   merged.positives overlap.to.true.positives recall precision f1.score
+## 1                0                 0.9501523      1         1        1</code></pre>
 <p> </p>
 <p>We successfully get rid of duplicates and detected every single target signal.</p>
 <hr />
@@ -977,45 +1012,37 @@ diagnose_detection(reference = lbh_reference, detection = filtered)</code></pre>
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C               LC_TIME=es_CR.UTF-8       
-##  [4] LC_COLLATE=es_ES.UTF-8     LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=es_ES.UTF-8   
-##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
-## [10] LC_TELEPHONE=C             LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=es_ES.UTF-8    
+##  [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=es_ES.UTF-8   
+##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] ohun_0.1.0         kableExtra_1.3.4   warbleR_1.1.27     NatureSounds_1.0.4 knitr_1.37        
-## [6] seewave_2.2.0      tuneR_1.3.3.1     
+## [1] ohun_0.1.0         warbleR_1.1.27     NatureSounds_1.0.4 knitr_1.37        
+## [5] seewave_2.2.0      tuneR_1.3.3.1     
 ## 
 ## loaded via a namespace (and not attached):
-##   [1] nlme_3.1-152          bitops_1.0-7          spatstat.sparse_2.1-0 webshot_0.5.2        
-##   [5] httr_1.4.2            Deriv_4.1.3           tools_4.1.1           bslib_0.2.5.1        
-##   [9] DT_0.19               vegan_2.5-7           utf8_1.2.2            R6_2.5.1             
-##  [13] rpart_4.1-15          mgcv_1.8-36           DBI_1.1.1             colorspace_2.0-3     
-##  [17] permute_0.9-5         raster_3.5-11         withr_2.5.0           sp_1.4-6             
-##  [21] gridExtra_2.3         tidyselect_1.1.1      compiler_4.1.1        soundgen_2.2.0       
-##  [25] cli_3.2.0             rvest_1.0.1           formatR_1.11          xml2_1.3.2           
-##  [29] microbenchmark_1.4-7  sass_0.4.0            xaringanthemer_0.4.1  scales_1.1.1         
-##  [33] spatstat.data_2.1-2   pbapply_1.5-0         proxy_0.4-26          dtw_1.22-3           
-##  [37] goftest_1.2-3         systemfonts_1.0.2     stringr_1.4.0         digest_0.6.29        
-##  [41] Sim.DiffProc_4.8      shinyBS_0.61          spatstat.utils_2.3-0  rmarkdown_2.10       
-##  [45] svglite_2.0.0         pkgconfig_2.0.3       htmltools_0.5.2       PhenotypeSpace_0.1.0 
-##  [49] fastmap_1.1.0         highr_0.9             htmlwidgets_1.5.3     rlang_1.0.2          
-##  [53] rstudioapi_0.13       xaringan_0.22         baRulho_1.0.6         jquerylib_0.1.4      
-##  [57] farver_2.1.0          generics_0.1.0        jsonlite_1.7.2        dplyr_1.0.7          
-##  [61] RCurl_1.98-1.6        magrittr_2.0.2        Matrix_1.3-4          Rcpp_1.0.8           
-##  [65] munsell_0.5.0         fansi_1.0.2           viridis_0.6.2         abind_1.4-5          
-##  [69] lifecycle_1.0.1       terra_1.5-12          whisker_0.4           stringi_1.7.6        
-##  [73] yaml_2.3.5            MASS_7.3-54           grid_4.1.1            parallel_4.1.1       
-##  [77] crayon_1.5.0          deldir_1.0-6          lattice_0.20-44       splines_4.1.1        
-##  [81] tensor_1.5            pillar_1.7.0          rjson_0.2.21          spatstat.geom_2.3-1  
-##  [85] fftw_1.0-6.1          codetools_0.2-18      glue_1.6.2            evaluate_0.15        
-##  [89] remotes_2.4.0         png_0.1-7             vctrs_0.3.8           polyclip_1.10-0      
-##  [93] gtable_0.3.0          purrr_0.3.4           spatstat.core_2.3-2   assertthat_0.2.1     
-##  [97] ggplot2_3.3.5         xfun_0.30             viridisLite_0.4.0     signal_0.7-7         
-##  [ reached getOption(&quot;max.print&quot;) -- omitted 4 entries ]</code></pre>
+##  [1] tidyselect_1.1.1  xfun_0.30         bslib_0.2.5.1     purrr_0.3.4      
+##  [5] pbapply_1.5-0     colorspace_2.0-3  vctrs_0.3.8       generics_0.1.0   
+##  [9] viridisLite_0.4.0 htmltools_0.5.2   yaml_2.3.5        utf8_1.2.2       
+## [13] rlang_1.0.2       jquerylib_0.1.4   pillar_1.7.0      DBI_1.1.1        
+## [17] glue_1.6.2        lifecycle_1.0.1   stringr_1.4.0     munsell_0.5.0    
+## [21] gtable_0.3.0      evaluate_0.15     fastmap_1.1.0     fftw_1.0-6.1     
+## [25] parallel_4.1.1    fansi_1.0.2       highr_0.9         Rcpp_1.0.8       
+## [29] formatR_1.11      scales_1.1.1      jsonlite_1.7.2    soundgen_2.2.0   
+## [33] Sim.DiffProc_4.8  Deriv_4.1.3       gridExtra_2.3     rjson_0.2.21     
+## [37] ggplot2_3.3.5     digest_0.6.29     stringi_1.7.6     dplyr_1.0.7      
+## [41] dtw_1.22-3        grid_4.1.1        cli_3.2.0         tools_4.1.1      
+## [45] bitops_1.0-7      magrittr_2.0.2    sass_0.4.0        RCurl_1.98-1.6   
+## [49] proxy_0.4-26      tibble_3.1.6      crayon_1.5.0      pkgconfig_2.0.3  
+## [53] MASS_7.3-54       ellipsis_0.3.2    shinyBS_0.61      assertthat_0.2.1 
+## [57] rmarkdown_2.10    rstudioapi_0.13   viridis_0.6.2     R6_2.5.1         
+## [61] signal_0.7-7      compiler_4.1.1</code></pre>
 </div>
 </div>
 

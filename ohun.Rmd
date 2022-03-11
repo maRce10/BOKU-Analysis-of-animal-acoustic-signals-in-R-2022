@@ -346,6 +346,13 @@ label_spectro(wave = simulated_1,  detection = detection)
 &nbsp;
 
 Amplitude modulation (variation in amplitude across a signal) can be problematic for detection based on amplitude envelopes. We can also simulate some amplitude modulation using `warbleR::simulate_songs()`:
+
+```{r aa, echo = FALSE}
+
+unlink(file.path(tempdir(), "simulated_2.wav")) 
+
+```
+
 ```{r, eval = TRUE, warning=FALSE, message=FALSE}
 
 #Creating simulated song
