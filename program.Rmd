@@ -31,6 +31,32 @@
 -   ‘wave’ object manipulations
 -   additional formats
 
+
+<div class="alert alert-warning">
+
+### Readings 
+
+- Alston, J. M., & Rick, J. A. (2021). [A beginner’s guide to conducting reproducible research](http://jessicarick.com/s/Alston_ReproducibleResearch_BulletinESA_Rev1.pdf). Bulletin of the Ecological Society of America, 102(2), 1-14.
+- Culina, A., van den Berg, I., Evans, S., & Sánchez-Tójar, A. (2020). [Low availability of code in ecology: A call for urgent action](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000763). PLoS Biology, 18(7), e3000763.
+
+</div>
+
+&nbsp; 
+
+<div class="alert alert-info">
+
+### Project assignment
+
+1. Use the function `query_xc()` to check the availability of recordings for some bird species you have in mind for your project (do not download at this step) 
+
+1. Subset the data frame returned by the function to get the subspecies/populations and vocalization type you are interested in (using base R subsetting tools)
+
+1. Download the associated recordings using `query_xc()` again
+
+</div>
+
+&nbsp;
+
 ---
 
 &nbsp; 

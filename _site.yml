@@ -31,6 +31,6 @@ navbar:
         href: quality_checks.html
     - text: "Course prep"
       href: course_prep.html
-    - text: "About"
-      href: about.html
+    - text: "Instructor"
+      href: instructor.html
 

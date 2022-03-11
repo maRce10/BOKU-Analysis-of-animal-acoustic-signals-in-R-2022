@@ -336,6 +336,9 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="introduction.html">Introduction</a>
+    </li>
+    <li>
       <a href="r_basics.html">R basics</a>
     </li>
     <li>
@@ -351,10 +354,10 @@ div.tocify {
       <a href="annotations.html">Annotations</a>
     </li>
     <li>
-      <a href="intro_to_warbler.html">Intro to warbleR</a>
+      <a href="ohun.html">ohun: automatic detection</a>
     </li>
     <li>
-      <a href="ohun.html">ohun: automatic detection</a>
+      <a href="intro_to_warbler.html">Intro to warbleR</a>
     </li>
     <li>
       <a href="measure_acoustic_structure.html">Measure acoustic structure</a>
@@ -590,7 +593,7 @@ l</code></pre>
 ## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;
 ## 
 ## $size
-## [1]  0.84156  0.37976  0.30929  0.77961  0.85051 -0.35159
+## [1]  2.59542  1.91887  0.32561 -1.20628 -1.74937 -0.63822
 ## 
 ## $observed
 ## [1] FALSE  TRUE FALSE FALSE FALSE</code></pre>
@@ -599,7 +602,7 @@ l</code></pre>
 <pre class="r"><code>str(l)</code></pre>
 <pre><code>## List of 3
 ##  $ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num [1:6] 0.842 0.38 0.309 0.78 0.851 ...
+##  $ size    : num [1:6] 2.595 1.919 0.326 -1.206 -1.749 ...
 ##  $ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p>… and dimensions:</p>
 <pre class="r"><code>l &lt;- list(ID = letters[1:5], size = rnorm(6), observed = c(FALSE, TRUE, FALSE, FALSE, FALSE), l)
@@ -607,11 +610,11 @@ l</code></pre>
 str(l)</code></pre>
 <pre><code>## List of 4
 ##  $ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num [1:6] 1.661 -0.656 0.119 1.919 -1.68 ...
+##  $ size    : num [1:6] -0.685 0.911 0.14 -0.539 -0.284 ...
 ##  $ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##  $         :List of 3
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] 0.842 0.38 0.309 0.78 0.851 ...
+##   ..$ size    : num [1:6] 2.595 1.919 0.326 -1.206 -1.749 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <pre class="r"><code>l2 &lt;- list(l, l)
 
@@ -619,19 +622,19 @@ str(l2)</code></pre>
 <pre><code>## List of 2
 ##  $ :List of 4
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] 1.661 -0.656 0.119 1.919 -1.68 ...
+##   ..$ size    : num [1:6] -0.685 0.911 0.14 -0.539 -0.284 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##   ..$         :List of 3
 ##   .. ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   .. ..$ size    : num [1:6] 0.842 0.38 0.309 0.78 0.851 ...
+##   .. ..$ size    : num [1:6] 2.595 1.919 0.326 -1.206 -1.749 ...
 ##   .. ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##  $ :List of 4
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] 1.661 -0.656 0.119 1.919 -1.68 ...
+##   ..$ size    : num [1:6] -0.685 0.911 0.14 -0.539 -0.284 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##   ..$         :List of 3
 ##   .. ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   .. ..$ size    : num [1:6] 0.842 0.38 0.309 0.78 0.851 ...
+##   .. ..$ size    : num [1:6] 2.595 1.919 0.326 -1.206 -1.749 ...
 ##   .. ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p><font size="5">Attributes</font></p>
@@ -770,12 +773,12 @@ c</code></pre>
 dim(m)</code></pre>
 <pre><code>## [1] 5 3</code></pre>
 <pre class="r"><code>m</code></pre>
-<pre><code>##   ID      size observed
-## 1  a  0.060344    FALSE
-## 2  b -0.636173     TRUE
-## 3  c  1.069984    FALSE
-## 4  d -0.862840    FALSE
-## 5  e  0.128956    FALSE</code></pre>
+<pre><code>##   ID    size observed
+## 1  a 1.44961    FALSE
+## 2  b 0.84417     TRUE
+## 3  c 1.82162    FALSE
+## 4  d 0.25947    FALSE
+## 5  e 0.30578    FALSE</code></pre>
 <pre class="r"><code>class(m)</code></pre>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <pre class="r"><code>is.data.frame(m)</code></pre>
@@ -785,7 +788,7 @@ dim(m)</code></pre>
 <pre class="r"><code>str(m)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    5 obs. of  3 variables:
 ##  $ ID      : chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num  0.0603 -0.6362 1.07 -0.8628 0.129
+##  $ size    : num  1.45 0.844 1.822 0.259 0.306
 ##  $ observed: logi  FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p>But vectors should have the same length:</p>
@@ -798,7 +801,7 @@ dim(m)</code></pre>
 <pre class="r"><code>str(m)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    5 obs. of  3 variables:
 ##  $ ID      : chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num  0.0603 -0.6362 1.07 -0.8628 0.129
+##  $ size    : num  1.45 0.844 1.822 0.259 0.306
 ##  $ observed: logi  FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p>Complex elements can be added to a data frame using <code>I()</code> to treat the list as one unit:</p>
@@ -956,8 +959,9 @@ bi &lt;- builtins()
 length(bi)</code></pre>
 <pre><code>## [1] 1370</code></pre>
 <pre class="r"><code>sample(bi, 10)</code></pre>
-<pre><code>##  [1] &quot;scale.default&quot;  &quot;parent.env&lt;-&quot;   &quot;enc2native&quot;     &quot;detach&quot;         &quot;mode&quot;          
-##  [6] &quot;is.array&quot;       &quot;intToBits&quot;      &quot;format.octmode&quot; &quot;structure&quot;      &quot;capabilities&quot;</code></pre>
+<pre><code>##  [1] &quot;.Deprecated&quot;      &quot;ceiling&quot;          &quot;levels&quot;           &quot;.Last&quot;           
+##  [5] &quot;stdin&quot;            &quot;as.Date.default&quot;  &quot;qr.resid&quot;         &quot;as.list.function&quot;
+##  [9] &quot;close&quot;            &quot;[.table&quot;</code></pre>
 <p> </p>
 <p>Operators are functions:</p>
 <pre class="r"><code>1 + 1</code></pre>
@@ -1181,10 +1185,12 @@ match
 <p><img src="images/recycle.png" alt="R" height="350" width="900"></p>
 <p><font size="2">* Modified from <i>Grolemund &amp; Wickham 2017</i></font></p>
 <p> </p>
-<pre><code>## Warning in 1:6 * 1:5: longitud de objeto mayor no es múltiplo de la longitud de uno menor</code></pre>
+<pre><code>## Warning in 1:6 * 1:5: longitud de objeto mayor no es múltiplo de la longitud de
+## uno menor</code></pre>
 <pre><code>## [1]  1  4  9 16 25  6</code></pre>
 <pre class="r"><code>1:6 + 1:5</code></pre>
-<pre><code>## Warning in 1:6 + 1:5: longitud de objeto mayor no es múltiplo de la longitud de uno menor</code></pre>
+<pre><code>## Warning in 1:6 + 1:5: longitud de objeto mayor no es múltiplo de la longitud de
+## uno menor</code></pre>
 <pre><code>## [1]  2  4  6  8 10  7</code></pre>
 <p> </p>
 <hr />
@@ -1318,9 +1324,9 @@ help(&quot;mean&quot;)</code></pre>
 <p> </p>
 <p>If you don’t recall the function name try <code>apropos()</code>:</p>
 <pre class="r"><code>apropos(&quot;mean&quot;)</code></pre>
-<pre><code>##  [1] &quot;.colMeans&quot;     &quot;.rowMeans&quot;     &quot;colMeans&quot;      &quot;kmeans&quot;        &quot;mean&quot;          &quot;mean.Date&quot;    
-##  [7] &quot;mean.default&quot;  &quot;mean.difftime&quot; &quot;mean.POSIXct&quot;  &quot;mean.POSIXlt&quot;  &quot;meandB&quot;        &quot;meanspec&quot;     
-## [13] &quot;rowMeans&quot;      &quot;weighted.mean&quot;</code></pre>
+<pre><code>##  [1] &quot;.colMeans&quot;     &quot;.rowMeans&quot;     &quot;colMeans&quot;      &quot;kmeans&quot;       
+##  [5] &quot;mean&quot;          &quot;mean.Date&quot;     &quot;mean.default&quot;  &quot;mean.difftime&quot;
+##  [9] &quot;mean.POSIXct&quot;  &quot;mean.POSIXlt&quot;  &quot;rowMeans&quot;      &quot;weighted.mean&quot;</code></pre>
 <p> </p>
 <p><font size="5">Vignettes</font></p>
 <p>Vignettes are illustrive documents or study cases detailing the use of a package (optional, can be several per package).</p>
@@ -1336,17 +1342,8 @@ help(&quot;mean&quot;)</code></pre>
 # call demo directly
 demo(&quot;nlm&quot;)</code></pre>
 <p> </p>
-</div>
-<div id="why-bioacoustics-in-r" class="section level2 alert alert-warning">
-<h2>Why bioacoustics in R?</h2>
-<ul>
-<li><p>Improves reproducibility of research</p></li>
-<li><p>Democratizes access to scientific resources</p></li>
-<li><p>Allows conducting analyses that better fit our research questions and study systems</p></li>
-</ul>
-</div>
-<p> </p>
 <hr />
+</div>
 <div id="references" class="section level2">
 <h2>References</h2>
 <ul>

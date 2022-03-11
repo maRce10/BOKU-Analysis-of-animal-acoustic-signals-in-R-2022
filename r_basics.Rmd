@@ -993,22 +993,6 @@ demo("nlm")
 
 &nbsp;
 
-
-
-<div class="alert alert-warning">
-
-## Why bioacoustics in R?
-
-- Improves reproducibility of research
-
-- Democratizes access to scientific resources
-
-- Allows conducting analyses that better fit our research questions and study systems
-
-</div>
-
-&nbsp;
-
 ---
 
 ## References
