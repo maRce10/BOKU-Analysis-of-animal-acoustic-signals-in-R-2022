@@ -279,13 +279,13 @@ In time series analysis, time dynamics distortion (DTW) is one of the algorithms
 
 The `freq_DTW()` function extracts the dominant frequency values as a time series and then calculates the acoustic dissimilarity using dynamic time warping. The function uses the `approx()` function to interpolate values between the dominant frequency measurements:
 
-```{r, eval = FALSE}
+```{r measure, eval = FALSE}
 
 dtwdist <- freq_DTW(lbh_selec_table)
 
 ```
 
-```{r, echo=FALSE}
+```{r measure 2, echo=FALSE}
 
 dtwdist <- freq_DTW(lbh_selec_table)
 
@@ -303,14 +303,14 @@ The function returns a matrix with paired dissimilarity values.
 
 If `img = TRUE`, the function also produces image files with the spectrograms of the signals listed in the input data frame that shows the location of the dominant frequencies.
 
-```{r, eval = FALSE}
+```{r measure 3, eval = FALSE}
 
 freq_DTW(lbh_selec_table, img = TRUE, col = "red", pch = 21, line = FALSE)
 
 ```
 &nbsp; 
 
-<img src="images/Phae.long1.wav-1-dfDTW.jpeg" alt="viewSpec" width="480">
+<img src="images/Phae.long1.wav-1-dfDTW.jpeg" alt="dfdtw" width="480">
 
 Frequency contours can be calculated independently using the `freq_ts()` function. These contours can be adjusted manually with the `tailor_sels()` function.
 

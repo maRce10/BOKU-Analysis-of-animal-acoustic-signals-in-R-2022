@@ -80,7 +80,7 @@
 
 - [Introduction to the Raven Pro Interface](https://ravensoundsoftware.com/video-tutorials/english/01-introduction-to-the-raven-pro-interface/)
 - [Introduction to selections and measurements](https://ravensoundsoftware.com/video-tutorials/english/02-selections-and-measurements/)
-- [Saving, retrieving, and exporting selection tables](https://ravensoundsoftware.com/video-tutorials/english/03-saving-selection-tables/´)
+- [Saving, retrieving, and exporting selection tables](https://ravensoundsoftware.com/video-tutorials/english/03-saving-selection-tables/)
 - [Using annotations](https://ravensoundsoftware.com/video-tutorials/english/05-using-annotations/)
 
 </div>
@@ -181,7 +181,9 @@ to warbleR</a>
   - Create full spectrograms of all sound files along with annotations
   - Create catalogs
 
-1. Double-check annotations using Raven (export data from R to Raven)
+&nbsp; 
+
+2. Double-check annotations using Raven (export data from R to Raven)
 
 </div>
 
