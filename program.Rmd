@@ -19,6 +19,12 @@
 - Köhler, J., Jansen, M., Rodríguez, A., Kok, P. J. R., Toledo, L. F., Emmrich, M., ... & Vences, M. (2017). [The use of bioacoustics in anuran taxonomy: theory, terminology, methods and recommendations for best practice](http://www.mvences.de/p/p1/Vences_A354.pdf). Zootaxa, 4251(1), 1-124. (*at least the first 28 pages*)
 
 
+### Videos
+
+- [Introduction to digital audio](https://www.youtube.com/watch?v=24BnHsY6rQs)
+
+- Digital audio artifacts: ([Video 1](https://www.youtube.com/watch?v=GwYTtSd8bTU), [Video 2](https://www.youtube.com/watch?v=thw32YvLrYo))
+
 </div>
 
 &nbsp; 
@@ -56,7 +62,7 @@
 
 ### Project assignment
 
-1. Use the function `query_xc()` to check the availability of recordings for some bird species you have in mind for your project (do not download at this step) (check [this brief tutorial](https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/get_xc_recordings.html) on how to do that)
+1. Use the function `query_xc()` to check the availability of recordings for some bird species you have in mind for your project (do not download at this step) ([*check this brief tutorial on how to do that*](https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/get_xc_recordings.html))
 
 1. Subset the data frame returned by the function to get the subspecies/populations and vocalization type you are interested in (using base R subsetting tools)
 

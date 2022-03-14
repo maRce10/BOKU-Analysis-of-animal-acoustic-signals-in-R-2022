@@ -37,6 +37,7 @@ Sound waves can be represented by 3 kinds of R objects:
 - Common classes (numerical vector, numerical matrix)
 - Time series classes (ts, mts)
 - Specific sound classes (Wave, sound and audioSample)
+
 &nbsp; 
 
 
@@ -288,7 +289,27 @@ A property that does not appear in these calls is that `readWave` does not norma
 range(s7@left)
 
 ``` 
+
 &nbsp; 
+
+<div class="alert alert-info">
+
+<font size="5">Exercise</font> 
+
+The function `Wave` can be used to create wave objects.
+
+&nbsp; 
+
+- Run the example code in the function documentation
+
+- Plot the oscillogram for the first 0.01 s of 'Wobj'
+
+- Note that the function `sine` provides a shortcut that can be used to create wave object with a sine wave. Check out other similar functions described in the `sine` function documentation. Try 4 of these alternative functions and plot the oscillogram of the first 0.01 s for each of them.   
+
+</div>
+
+&nbsp; 
+
 
 ## Class `sound` (**phonTools**)
 
@@ -442,7 +463,47 @@ This table, taken from Sueur (2018), summarizes the functions available to impor
 
 - Use the `system.time()` function to compare the performance of the different functions to import audio files in R. For this use the file "LBH.374.SUR.wav" (Long-billed hermit songs) which lasts about 2 min
 
- tip: *the function `Wave()` can be used to convert amplitude vectors into wave objects*
+- Earlier we created wave objects using the `sine` function and analogous functions. Import those wave objects as audio files and play them. Try increasing their duration to get a better sense how they sound like.  
+
+The following code creates a plot similar to `oscillo` but using dots instead of lines:
+
+```{r, eval = FALSE}
+
+# generate sine wave
+wav <- sine(freq = 440, duration = 500, xunit = "samples", samp.rate = 44100)
+
+# plot
+plot(wav@left) 
+
+```
+
+```{r, echo = FALSE}
+
+# generate sine wave
+wav <- sine(freq = 440, duration = 500, xunit = "samples", samp.rate = 44100)
+
+par(bg = "#D9EDF7", mar = c(5, 4, 1, 0) + 0.1)
+
+# plot
+plot(wav@left) 
+```
+
+
+&nbsp; 
+
+- Use the function `downsample` to reduce the sampling rate of 'wav' (below 44100) and plot the output object. Decrease the sampling rate until you cannot recognize the wave pattern from the original wave object. Try several values so you get a decent sense at which sampling rate this happens.
+
+```{r, eval =  FALSE, echo = FALSE}
+
+down_wav <- downsample(object = wav, samp.rate = 2756)
+
+# plot
+plot(down_wav@left) 
+
+```
+
+
+
 
 </div>
 

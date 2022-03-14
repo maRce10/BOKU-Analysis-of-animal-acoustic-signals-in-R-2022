@@ -1,5 +1,8 @@
 name: "BOKU: Analysis of animal acoustic signals in R"
 output_dir: "docs"
+output:
+  html_document:
+    highlight: pygments
 navbar:
   title: "BOKU bioacoustics R 2022"
   left:

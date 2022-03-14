@@ -30,8 +30,6 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -42,16 +40,6 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
 
 
@@ -312,7 +300,8 @@ $(document).ready(function () {
 <div id="day-1" class="section level2">
 <h2>Day 1</h2>
 <hr />
-<div id="readings" class="section level3 alert alert-warning">
+<div class="alert alert-warning">
+<div id="readings" class="section level3">
 <h3>Readings</h3>
 <div id="reproducibility" class="section level4">
 <h4>Reproducibility</h4>
@@ -325,6 +314,14 @@ $(document).ready(function () {
 <h4>Intro to basic bioacoustics concepts</h4>
 <ul>
 <li>Köhler, J., Jansen, M., Rodríguez, A., Kok, P. J. R., Toledo, L. F., Emmrich, M., … &amp; Vences, M. (2017). <a href="http://www.mvences.de/p/p1/Vences_A354.pdf">The use of bioacoustics in anuran taxonomy: theory, terminology, methods and recommendations for best practice</a>. Zootaxa, 4251(1), 1-124. (<em>at least the first 28 pages</em>)</li>
+</ul>
+</div>
+</div>
+<div id="videos" class="section level3">
+<h3>Videos</h3>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=24BnHsY6rQs">Introduction to digital audio</a></p></li>
+<li><p>Digital audio artifacts: (<a href="https://www.youtube.com/watch?v=GwYTtSd8bTU">Video 1</a>, <a href="https://www.youtube.com/watch?v=thw32YvLrYo">Video 2</a>)</p></li>
 </ul>
 </div>
 </div>
@@ -356,7 +353,7 @@ $(document).ready(function () {
 <div id="project-assignment" class="section level3 alert alert-info">
 <h3>Project assignment</h3>
 <ol style="list-style-type: decimal">
-<li><p>Use the function <code>query_xc()</code> to check the availability of recordings for some bird species you have in mind for your project (do not download at this step) (check <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/get_xc_recordings.html">this brief tutorial</a> on how to do that)</p></li>
+<li><p>Use the function <code>query_xc()</code> to check the availability of recordings for some bird species you have in mind for your project (do not download at this step) (<a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/get_xc_recordings.html"><em>check this brief tutorial on how to do that</em></a>)</p></li>
 <li><p>Subset the data frame returned by the function to get the subspecies/populations and vocalization type you are interested in (using base R subsetting tools)</p></li>
 <li><p>Download the associated recordings using <code>query_xc()</code> again</p></li>
 </ol>
@@ -367,7 +364,7 @@ $(document).ready(function () {
 <div id="day-2" class="section level2">
 <h2>Day 2</h2>
 <hr />
-<div id="videos" class="section level3 alert alert-warning">
+<div id="videos-1" class="section level3 alert alert-warning">
 <h3>Videos</h3>
 <div id="raven-tutorials" class="section level4">
 <h4>Raven tutorials</h4>
