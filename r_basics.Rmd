@@ -584,6 +584,23 @@ View(df)
 ```
 &nbsp;
 
+<div class="alert alert-info">
+
+<font size="5">Exercise</font> 
+
+&nbsp;
+
+- Using the example data `iris` to create a data subset with only the observations of the species 'setosa'
+
+- Now create a data subset containing the observations of both 'setosa' and 'versicolor'
+
+- Also with `iris` create a data subset with the observations for which `iris$Sepal.length` is higher than 6
+
+- How many observations have a sepal length higher than 6?
+
+</div>
+
+&nbsp;
 
 ---
 
@@ -963,7 +980,7 @@ apropos("mean")
 
 <font size="5">Vignettes</font>  
 
-Vignettes are illustrive documents or study cases detailing the use of a package (optional, can be several per package).
+Vignettes are illustrative documents or study cases detailing the use of a package (optional, can be several per package).
 
 Vignettes can be called directly from R:
 
@@ -990,6 +1007,24 @@ demo(package="stats")
 demo("nlm")
 
 ```
+
+&nbsp;
+
+<div class="alert alert-info">
+
+<font size="5">Exercise</font> 
+
+&nbsp;
+
+- What does the function `cut()` do?
+
+- What is the `breaks` argument in `cut()` used for?
+
+- Run the first 4 lines of code in the examples supplied in the `cut()` documentation
+
+- How many vignettes does the package warbleR has?
+
+</div>
 
 &nbsp;
 

@@ -30,7 +30,7 @@
 -   How animal acoustic signals look like?
 -   Analytical workflow in bioacoustics research
 -   Advantages of programming
--   Course structure
+-   Course outline
 
 **Basic R concepts**
 <a href="https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/r_basics.html" class="btn btn-warning btn-xs" role="button">R basics</a>
@@ -56,7 +56,7 @@
 
 ### Project assignment
 
-1. Use the function `query_xc()` to check the availability of recordings for some bird species you have in mind for your project (do not download at this step) 
+1. Use the function `query_xc()` to check the availability of recordings for some bird species you have in mind for your project (do not download at this step) (check [this brief tutorial](https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/get_xc_recordings.html) on how to do that)
 
 1. Subset the data frame returned by the function to get the subspecies/populations and vocalization type you are interested in (using base R subsetting tools)
 

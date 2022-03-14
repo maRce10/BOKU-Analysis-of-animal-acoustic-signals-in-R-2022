@@ -192,5 +192,6 @@ class: middle
   - Report performance statistics of the optimized routine
   - Turn in the analysis code along with a summary of findings
 
+
 ---
 

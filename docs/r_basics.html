@@ -374,7 +374,7 @@ div.tocify {
   <a href="course_prep.html">Course prep</a>
 </li>
 <li>
-  <a href="about.html">About</a>
+  <a href="instructor.html">Instructor</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -398,7 +398,7 @@ div.tocify {
 <font size="3"><a href="http://marceloarayasalas.weebly.com/">Marcelo Araya-Salas, PhD</a></font>
 </center></h4>
 <h4 class="date"><center>
-“2022-03-10”
+“2022-03-13”
 </center></h4>
 
 </div>
@@ -593,7 +593,7 @@ l</code></pre>
 ## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot;
 ## 
 ## $size
-## [1]  2.59542  1.91887  0.32561 -1.20628 -1.74937 -0.63822
+## [1]  0.35036 -0.55679 -0.83401 -0.89232  0.32200 -0.98892
 ## 
 ## $observed
 ## [1] FALSE  TRUE FALSE FALSE FALSE</code></pre>
@@ -602,7 +602,7 @@ l</code></pre>
 <pre class="r"><code>str(l)</code></pre>
 <pre><code>## List of 3
 ##  $ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num [1:6] 2.595 1.919 0.326 -1.206 -1.749 ...
+##  $ size    : num [1:6] 0.35 -0.557 -0.834 -0.892 0.322 ...
 ##  $ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p>… and dimensions:</p>
 <pre class="r"><code>l &lt;- list(ID = letters[1:5], size = rnorm(6), observed = c(FALSE, TRUE, FALSE, FALSE, FALSE), l)
@@ -610,11 +610,11 @@ l</code></pre>
 str(l)</code></pre>
 <pre><code>## List of 4
 ##  $ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num [1:6] -0.685 0.911 0.14 -0.539 -0.284 ...
+##  $ size    : num [1:6] -0.7514 0.8222 -0.0715 -0.894 0.8496 ...
 ##  $ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##  $         :List of 3
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] 2.595 1.919 0.326 -1.206 -1.749 ...
+##   ..$ size    : num [1:6] 0.35 -0.557 -0.834 -0.892 0.322 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <pre class="r"><code>l2 &lt;- list(l, l)
 
@@ -622,19 +622,19 @@ str(l2)</code></pre>
 <pre><code>## List of 2
 ##  $ :List of 4
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] -0.685 0.911 0.14 -0.539 -0.284 ...
+##   ..$ size    : num [1:6] -0.7514 0.8222 -0.0715 -0.894 0.8496 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##   ..$         :List of 3
 ##   .. ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   .. ..$ size    : num [1:6] 2.595 1.919 0.326 -1.206 -1.749 ...
+##   .. ..$ size    : num [1:6] 0.35 -0.557 -0.834 -0.892 0.322 ...
 ##   .. ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##  $ :List of 4
 ##   ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   ..$ size    : num [1:6] -0.685 0.911 0.14 -0.539 -0.284 ...
+##   ..$ size    : num [1:6] -0.7514 0.8222 -0.0715 -0.894 0.8496 ...
 ##   ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE
 ##   ..$         :List of 3
 ##   .. ..$ ID      : chr [1:5] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##   .. ..$ size    : num [1:6] 2.595 1.919 0.326 -1.206 -1.749 ...
+##   .. ..$ size    : num [1:6] 0.35 -0.557 -0.834 -0.892 0.322 ...
 ##   .. ..$ observed: logi [1:5] FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p><font size="5">Attributes</font></p>
@@ -773,12 +773,12 @@ c</code></pre>
 dim(m)</code></pre>
 <pre><code>## [1] 5 3</code></pre>
 <pre class="r"><code>m</code></pre>
-<pre><code>##   ID    size observed
-## 1  a 1.44961    FALSE
-## 2  b 0.84417     TRUE
-## 3  c 1.82162    FALSE
-## 4  d 0.25947    FALSE
-## 5  e 0.30578    FALSE</code></pre>
+<pre><code>##   ID     size observed
+## 1  a -0.45489    FALSE
+## 2  b  1.73171     TRUE
+## 3  c -1.49997    FALSE
+## 4  d -0.21520    FALSE
+## 5  e -0.95499    FALSE</code></pre>
 <pre class="r"><code>class(m)</code></pre>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <pre class="r"><code>is.data.frame(m)</code></pre>
@@ -788,7 +788,7 @@ dim(m)</code></pre>
 <pre class="r"><code>str(m)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    5 obs. of  3 variables:
 ##  $ ID      : chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num  1.45 0.844 1.822 0.259 0.306
+##  $ size    : num  -0.455 1.732 -1.5 -0.215 -0.955
 ##  $ observed: logi  FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p>But vectors should have the same length:</p>
@@ -801,7 +801,7 @@ dim(m)</code></pre>
 <pre class="r"><code>str(m)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    5 obs. of  3 variables:
 ##  $ ID      : chr  &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; ...
-##  $ size    : num  1.45 0.844 1.822 0.259 0.306
+##  $ size    : num  -0.455 1.732 -1.5 -0.215 -0.955
 ##  $ observed: logi  FALSE TRUE FALSE FALSE FALSE</code></pre>
 <p> </p>
 <p>Complex elements can be added to a data frame using <code>I()</code> to treat the list as one unit:</p>
@@ -944,6 +944,17 @@ l[[1]]</code></pre>
 <pre><code>## [1] &quot;list&quot;</code></pre>
 <pre class="r"><code>View(df)</code></pre>
 <p> </p>
+<div class="alert alert-info">
+<p><font size="5">Exercise</font></p>
+<p> </p>
+<ul>
+<li><p>Using the example data <code>iris</code> to create a data subset with only the observations of the species ‘setosa’</p></li>
+<li><p>Now create a data subset containing the observations of both ‘setosa’ and ‘versicolor’</p></li>
+<li><p>Also with <code>iris</code> create a data subset with the observations for which <code>iris$Sepal.length</code> is higher than 6</p></li>
+<li><p>How many observations have a sepal length higher than 6?</p></li>
+</ul>
+</div>
+<p> </p>
 <hr />
 <p> </p>
 </div>
@@ -959,9 +970,10 @@ bi &lt;- builtins()
 length(bi)</code></pre>
 <pre><code>## [1] 1370</code></pre>
 <pre class="r"><code>sample(bi, 10)</code></pre>
-<pre><code>##  [1] &quot;.Deprecated&quot;      &quot;ceiling&quot;          &quot;levels&quot;           &quot;.Last&quot;           
-##  [5] &quot;stdin&quot;            &quot;as.Date.default&quot;  &quot;qr.resid&quot;         &quot;as.list.function&quot;
-##  [9] &quot;close&quot;            &quot;[.table&quot;</code></pre>
+<pre><code>##  [1] &quot;transform.data.frame&quot;  &quot;deparse1&quot;              &quot;@&lt;-&quot;                  
+##  [4] &quot;packageStartupMessage&quot; &quot;within.data.frame&quot;     &quot;suppressWarnings&quot;     
+##  [7] &quot;xor&quot;                   &quot;file.size&quot;             &quot;registerS3methods&quot;    
+## [10] &quot;errorCondition&quot;</code></pre>
 <p> </p>
 <p>Operators are functions:</p>
 <pre class="r"><code>1 + 1</code></pre>
@@ -1329,7 +1341,7 @@ help(&quot;mean&quot;)</code></pre>
 ##  [9] &quot;mean.POSIXct&quot;  &quot;mean.POSIXlt&quot;  &quot;rowMeans&quot;      &quot;weighted.mean&quot;</code></pre>
 <p> </p>
 <p><font size="5">Vignettes</font></p>
-<p>Vignettes are illustrive documents or study cases detailing the use of a package (optional, can be several per package).</p>
+<p>Vignettes are illustrative documents or study cases detailing the use of a package (optional, can be several per package).</p>
 <p>Vignettes can be called directly from R:</p>
 <pre class="r"><code>vgn &lt;- browseVignettes() </code></pre>
 <pre class="r"><code>vignette()</code></pre>
@@ -1341,6 +1353,17 @@ help(&quot;mean&quot;)</code></pre>
 
 # call demo directly
 demo(&quot;nlm&quot;)</code></pre>
+<p> </p>
+<div class="alert alert-info">
+<p><font size="5">Exercise</font></p>
+<p> </p>
+<ul>
+<li><p>What does the function <code>cut()</code> do?</p></li>
+<li><p>What is the <code>breaks</code> argument in <code>cut()</code> used for?</p></li>
+<li><p>Run the first 4 lines of code in the examples supplied in the <code>cut()</code> documentation</p></li>
+<li><p>How many vignettes does the package warbleR has?</p></li>
+</ul>
+</div>
 <p> </p>
 <hr />
 </div>
