@@ -5,6 +5,7 @@ author: <center><font size="3"><a href="http://marceloarayasalas.weebly.com/">Ma
 date: <center>"`r Sys.Date()`"</center>
 output:
   html_document:
+    highlight: pygments    
     toc: yes
     toc_depth: 3
     toc_float:
@@ -14,6 +15,15 @@ fontsize: 12pt
 editor_options: 
   chunk_output_type: console
 ---
+
+
+```{r, echo = FALSE}
+library(knitr)
+
+opts_chunk$set(tidy = TRUE, warning = FALSE, message = FALSE)
+
+```
+
 &nbsp; 
 
 
@@ -600,6 +610,8 @@ palette=blanc, scale=FALSE,  flim = c(2, 6))
 
 - Which value of "wl" (window size) generates smoother spectrograms for the example "orni" object?
 
+- The package `viridis` provides some color palettes that are better perceived by people with forms of color blindness and/or color vision deficiency. Install the package and try some of the color palettes available (try `?viridis`)
+
 
 </div>
 
@@ -726,8 +738,6 @@ axis(side=1, at=seq(0, 1,length=5), labels = time)
 axis(side=2, at=seq(0, 1,length=5), labels = frequency)
 
 ```
-&nbsp; 
-
 
 &nbsp; 
 
@@ -735,7 +745,7 @@ axis(side=2, at=seq(0, 1,length=5), labels = frequency)
 
 <font size="5">Exercise</font> 
 
-- Pick up an example acoustic signal from your own research and make a spectrogram 
+- Pick up an example acoustic signal from your own research and make a spectrogram (or a recording from Xeno-Canto)
 
 - Improve the visualization by optimizing the parameters 'wl', 'collevels', 'palette' and 'overlap'
 
@@ -743,12 +753,55 @@ axis(side=2, at=seq(0, 1,length=5), labels = frequency)
 
 &nbsp; 
 
+## Dynamic spectrograms
+
+
+The package [dynaSpec](https://marce10.github.io/dynaSpec) allows to create static and dynamic visualizations of sounds, ready for publication or presentation. These dynamic spectrograms are produced natively with base graphics, and are save as an .mp4 video in the working directory:
+
+```{r, eval = FALSE}
+
+
+ngh_wren <- read_sound_file("https://www.xeno-canto.org/518334/download")
+
+custom_pal <- colorRampPalette( c("#2d2d86", "#2d2d86", reverse.terrain.colors(10)[5:10]))
+
+library(dynaSpec)
+
+scrolling_spectro(wave = ngh_wren, wl = 600, 
+    t.display = 3, ovlp = 95, pal = custom_pal, 
+    grid = FALSE, flim = c(2, 8), width = 700, 
+    height = 250, res = 100, collevels = seq(-40, 0, 5),
+    file.name = "../nightingale_wren.mp4", colbg = "#2d2d86", lcol = "#FFFFFFE6")
+```
+
+<center><iframe width="100%" height="297" src="images/nightingale_wren.mp4" allowtransparency="true" style="background: #000000;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
+&nbsp; 
+
+<div class="alert alert-info">
+
+<font size="5">Exercise</font> 
+
+- Rerun the example code above but this time using a waveform in the bottom panel
+
+- Slow down the spectrogram (see the argument 'speed')
+
+- Use a `viridis` color palette
+
+- Pick up an example acoustic signal from your project and make a dynamic spectrogram (or a recording from Xeno-Canto)
+
+
+</div>
+
+&nbsp; 
+
 ## References
   
+1. Araya-Salas, Marcelo and Wilkins, Matthew R. (2020), dynaSpec: dynamic spectrogram visualizations in R. R package version 1.0.0.
+
 1. Sueur J, Aubin T, Simonis C. 2008. Equipment review: seewave, a free modular tool for sound analysis and synthesis. Bioacoustics 18(2):213–226.
 
 1. Sueur, J. (2018). Sound Analysis and Synthesis with R.
-
 
 ---
 &nbsp; 

@@ -5,6 +5,7 @@ author: <center><font size="3"><a href="http://marceloarayasalas.weebly.com/">Ma
 date: <center>"`r Sys.Date()`"</center>
 output:
   html_document:
+    highlight: pygments
     toc: yes
     toc_depth: 3
     toc_float:
@@ -14,6 +15,14 @@ fontsize: 12pt
 editor_options: 
   chunk_output_type: console
 ---
+
+```{r, echo = FALSE}
+library(knitr)
+
+opts_chunk$set(tidy = TRUE, warning = FALSE, message = FALSE)
+
+```
+
 &nbsp; 
 
 Sound waves are characterized by compression and expansion of the medium as sound energy moves through it. There is also back and forth motion of the particles making up the medium:
@@ -311,6 +320,52 @@ The function `Wave` can be used to create wave objects.
 &nbsp; 
 
 
+The function `read_sound_files` from warbleR is a wrapper over several sound file reading functions, that  can read files in 'wav', 'mp3', 'flac' and 'wac' format:
+
+```{r, eval = TRUE}
+
+library(warbleR)
+
+# wave
+rsf1 <- read_sound_file("Phaethornis-eurynome-15607.wav", path = "./examples")
+
+class(rsf1)
+
+# mp3
+rsf2 <- read_sound_file("Phaethornis-striigularis-154074.mp3", path = "./examples")
+
+class(rsf2)
+
+# flac
+rsf3 <- read_sound_file("Phae.long1.flac", path = "./examples")
+
+class(rsf3)
+
+# wac
+rsf4 <- read_sound_file("recording_20170716_230503.wac", path = "./examples")
+
+class(rsf4)
+
+```
+
+&nbsp; 
+
+The function can also read recordings hosted in an online repository:
+
+```{r}
+
+rsf5 <- read_sound_file(X = "https://xeno-canto.org/35340/download")
+
+class(rsf5)
+
+rsf5 <- read_sound_file(X = "https://github.com/maRce10/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/raw/master/examples/Phae.long1.flac")
+
+class(rsf6)
+
+```
+
+&nbsp; 
+
 ## Class `sound` (**phonTools**)
 
 The `loadsound()` function of *phonTools* also imports 'wave' sound files into R, in this case as objects of class `sound`:
@@ -491,7 +546,7 @@ plot(wav@left)
 
 &nbsp; 
 
-- Use the function `downsample` to reduce the sampling rate of 'wav' (below 44100) and plot the output object. Decrease the sampling rate until you cannot recognize the wave pattern from the original wave object. Try several values so you get a decent sense at which sampling rate this happens.
+- Use the function `downsample` to reduce the sampling rate of 'wav' (below 44100) and plot the output object. Decrease the sampling rate until you cannot recognize the wave pattern from the original wave object. Try several values so you get a sense at which sampling rate this happens.
 
 ```{r, eval =  FALSE, echo = FALSE}
 
