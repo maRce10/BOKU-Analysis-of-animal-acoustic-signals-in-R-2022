@@ -385,6 +385,8 @@ str(s8)
 
 This function only imports files with a dynamic range of 8 or 16 bits.
 
+&nbsp; 
+
 ## Class `audioSample` (**audio**)
 
 The **audio** package is another option to handle `.wav` files. The sound can be imported using the `load.wave()` function. The class of the resulting object is `audioSample` which is essentially a numerical vector (for mono) or a numerical matrix with two rows (for stereo). The sampling frequency and resolution are saved as attributes:
@@ -416,6 +418,8 @@ record(s11, 16000, 1)
 &nbsp; 
 
 A recording session can be controlled by three complementary functions: `pause()`, `rewind()`, and `resume()`.
+
+&nbsp; 
 
 ## Export sounds from R
 
