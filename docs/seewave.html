@@ -334,6 +334,9 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="introduction.html">Introduction</a>
+    </li>
+    <li>
       <a href="r_basics.html">R basics</a>
     </li>
     <li>
@@ -349,10 +352,10 @@ div.tocify {
       <a href="annotations.html">Annotations</a>
     </li>
     <li>
-      <a href="intro_to_warbler.html">Intro to warbleR</a>
+      <a href="ohun.html">ohun: automatic detection</a>
     </li>
     <li>
-      <a href="ohun.html">ohun: automatic detection</a>
+      <a href="intro_to_warbler.html">Intro to warbleR</a>
     </li>
     <li>
       <a href="measure_acoustic_structure.html">Measure acoustic structure</a>
@@ -369,7 +372,7 @@ div.tocify {
   <a href="course_prep.html">Course prep</a>
 </li>
 <li>
-  <a href="about.html">About</a>
+  <a href="instructor.html">Instructor</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -393,7 +396,7 @@ div.tocify {
 <font size="3"><a href="http://marceloarayasalas.weebly.com/">Marcelo Araya-Salas, PhD</a></font>
 </center></h4>
 <h4 class="date"><center>
-“2022-03-10”
+“2022-03-16”
 </center></h4>
 
 </div>
@@ -500,21 +503,23 @@ env(tico, f = 22050, colwave = &quot;blue&quot;)</code></pre>
 <p><img src="seewave_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <pre class="r"><code>tmr</code></pre>
 <pre><code>## $s
-## [1] 6.0140e-02 5.9187e-02 5.1341e-02 4.5354e-05 5.7283e-02 4.5354e-05 6.6671e-03 4.5354e-05
-## [9] 4.9663e-02
+## [1] 6.013985e-02 5.918741e-02 5.134111e-02 4.535434e-05 5.728253e-02
+## [6] 4.535434e-05 6.667088e-03 4.535434e-05 4.966300e-02
 ## 
 ## $p
-##  [1] 2.2088e-02 1.0046e-01 8.2726e-02 2.2677e-04 8.5946e-02 4.5354e-05 8.1320e-02 4.9890e-04
-##  [9] 4.5354e-05 6.0684e-02
+##  [1] 2.208756e-02 1.004599e-01 8.272631e-02 2.267717e-04 8.594647e-02
+##  [6] 4.535434e-05 8.132033e-02 4.988977e-04 4.535434e-05 6.068410e-02
 ## 
 ## $r
-## [1] 0.65528
+## [1] 0.6552769
 ## 
 ## $s.start
-## [1] 0.022088 0.182687 0.324601 0.376169 0.462161 0.519489 0.600854 0.608020 0.608111
+## [1] 0.02208756 0.18268727 0.32460099 0.37616887 0.46216069 0.51948857 0.60085425
+## [8] 0.60802024 0.60811095
 ## 
 ## $s.end
-## [1] 0.082227 0.241875 0.375942 0.376214 0.519443 0.519534 0.607521 0.608066 0.657774
+## [1] 0.08222741 0.24187468 0.37594210 0.37621422 0.51944322 0.51953393 0.60752134
+## [8] 0.60806559 0.65777395
 ## 
 ## $first
 ## [1] &quot;pause&quot;</code></pre>
@@ -522,8 +527,7 @@ env(tico, f = 22050, colwave = &quot;blue&quot;)</code></pre>
 <div class="alert alert-info">
 <p><font size="5">Exercise</font></p>
 <ul>
-<li><p>In the previous example using <code>timer()</code> the last pulse is divided into 2 detections, one very small at the beginning and another containing the rest of the pulse. Change the “ssmooth” argument until this section is detected as a single pulse.</p></li>
-<li><p>Use the “msmooth” and “ksmooth” arguments to achieve a detection similar to that obtained with “ssmooth”</p></li>
+<li>In the previous example using <code>timer()</code> the last pulse is divided into 2 detections, one very small at the beginning and another containing the rest of the pulse. Change the “ssmooth” argument until this section is detected as a single pulse.</li>
 </ul>
 </div>
 <p> </p>
@@ -546,20 +550,20 @@ polygon(rbind(c(0, 0), mspc), col = &quot;red&quot;)</code></pre>
 <pre class="r"><code>pks &lt;- fpeaks(spc, nmax = 1)</code></pre>
 <p><img src="seewave_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <pre class="r"><code>pks</code></pre>
-<pre><code>##        [,1] [,2]
-## [1,] 4.8604    1</code></pre>
+<pre><code>##          [,1] [,2]
+## [1,] 4.860409    1</code></pre>
 <p> </p>
 <p>.. or into the <code>localpeaks()</code> function to calculate amplitude peaks in different frequency bands:</p>
 <pre class="r"><code>pks &lt;- localpeaks(spc, bands = 6)</code></pre>
 <p><img src="seewave_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <pre class="r"><code>pks</code></pre>
-<pre><code>##          freq      amp
-## [1,] 0.036189 0.027635
-## [2,] 2.396800 0.248963
-## [3,] 4.860409 1.000000
-## [4,] 5.610627 0.322869
-## [5,] 7.701215 0.138739
-## [6,] 9.225312 0.016284</code></pre>
+<pre><code>##            freq        amp
+## [1,] 0.03618861 0.02763496
+## [2,] 2.39679965 0.24896255
+## [3,] 4.86040904 1.00000000
+## [4,] 5.61062681 0.32286909
+## [5,] 7.70121512 0.13873937
+## [6,] 9.22531246 0.01628412</code></pre>
 </div>
 <div id="wave-manipulation" class="section level2">
 <h2>Wave manipulation</h2>
@@ -582,9 +586,9 @@ oscillo(tico4)</code></pre>
 <pre class="r"><code>tico5 &lt;- addsilw(tico, at = &quot;end&quot;, d = 1, output = &quot;Wave&quot;)
 
 duration(tico)</code></pre>
-<pre><code>## [1] 1.7949</code></pre>
+<pre><code>## [1] 1.794921</code></pre>
 <pre class="r"><code>duration(tico5)</code></pre>
-<pre><code>## [1] 2.7949</code></pre>
+<pre><code>## [1] 2.794921</code></pre>
 <p>Remove silence:</p>
 <pre class="r"><code>tico6 &lt;- zapsilw(tico5)</code></pre>
 <p><img src="seewave_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
@@ -592,17 +596,24 @@ duration(tico)</code></pre>
 <div class="alert alert-info">
 <p><font size="5">Exercise</font></p>
 <ul>
-<li>Create a new wave object with a clip from “tico” that goes from 0.1 to 1.1 s <strong>using base R indexing/subsetting</strong>.</li>
+<li>The function <code>rev()</code> can reverse te order of a vector:</li>
+</ul>
+<pre class="r"><code>v1 &lt;- c(1, 2, 3)
+
+rev(v1)</code></pre>
+<pre><code>## [1] 3 2 1</code></pre>
+<ul>
+<li>Reverse the amplitude vector of ‘tico’ and generate a spectrogram of the reversed wave object</li>
 </ul>
 </div>
 <p> </p>
 <p>Filter out frequency bands:</p>
 <pre class="r"><code># original
 spectro(tico, scale = FALSE, grid = FALSE, flim = c(2, 6))</code></pre>
-<p><img src="seewave_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p><img src="seewave_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
 <pre class="r"><code># filtered
 spectro(ffilter(tico, from = 4000, to = 6500, output = &quot;Wave&quot;), scale = FALSE, grid = FALSE, flim = c(2, 6))</code></pre>
-<p><img src="seewave_files/figure-html/unnamed-chunk-22-2.png" width="672" /></p>
+<p><img src="seewave_files/figure-html/unnamed-chunk-23-2.png" width="672" /></p>
 <p>Change frequency (pitch):</p>
 <pre class="r"><code># cut the first
 tico6 &lt;- cutw(tico, from = 0, to = 0.5, output = &quot;Wave&quot;)
@@ -624,7 +635,7 @@ spectro(tico6, scale = FALSE, grid = FALSE, flim = c(1, 8), main = &quot;origina
 spectro(tico.lfs, scale = FALSE, grid = FALSE, flim = c(1, 8), main = &quot;1 kHz up&quot;)
 
 spectro(tico.lfs.neg, scale = FALSE, grid = FALSE, flim = c(1, 8), main = &quot;1 kHz down&quot;)</code></pre>
-<p><img src="seewave_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="seewave_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <pre class="r"><code>par(opar)</code></pre>
 </div>
 <div id="measurements" class="section level2">
@@ -636,15 +647,15 @@ spectro(tico.lfs.neg, scale = FALSE, grid = FALSE, flim = c(1, 8), main = &quot;
 par(new=TRUE)
 
 ff &lt;- fund(sheep, fmax = 300, ann = FALSE, threshold=6, col = &quot;green&quot;)</code></pre>
-<p><img src="seewave_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p><img src="seewave_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
 <pre class="r"><code>head(ff)</code></pre>
-<pre><code>##            x        y
-## [1,] 0.00000       NA
-## [2,] 0.06677       NA
-## [3,] 0.13354       NA
-## [4,] 0.20031       NA
-## [5,] 0.26708 0.100000
-## [6,] 0.33385 0.071429</code></pre>
+<pre><code>##               x          y
+## [1,] 0.00000000         NA
+## [2,] 0.06677027         NA
+## [3,] 0.13354054         NA
+## [4,] 0.20031081         NA
+## [5,] 0.26708108 0.10000000
+## [6,] 0.33385135 0.07142857</code></pre>
 <p> </p>
 <p>This function uses cepstral transformation to detect the dominant frequency. The <code>autoc()</code> function also measures the fundamental frequency, only using autocorrelation.</p>
 <p>Similarly we can measure the dominant frequency:</p>
@@ -653,24 +664,24 @@ ff &lt;- fund(sheep, fmax = 300, ann = FALSE, threshold=6, col = &quot;green&quo
 df &lt;- dfreq(sheep, f = 8000, fmax = 300, type = &quot;p&quot;, pch = 24, ann = FALSE, threshold = 6, col = &quot;red&quot;)
 
 head(df)</code></pre>
-<p><img src="seewave_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
-<pre><code>##            x       y
-## [1,] 0.00000      NA
-## [2,] 0.06677      NA
-## [3,] 0.13354      NA
-## [4,] 0.20031      NA
-## [5,] 0.26708 0.48438
-## [6,] 0.33385 0.62500</code></pre>
+<p><img src="seewave_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<pre><code>##               x        y
+## [1,] 0.00000000       NA
+## [2,] 0.06677027       NA
+## [3,] 0.13354054       NA
+## [4,] 0.20031081       NA
+## [5,] 0.26708108 0.484375
+## [6,] 0.33385135 0.625000</code></pre>
 <p> </p>
 <p>Measure statistical descriptors of the amplitude distribution in frequency and time:</p>
 <pre class="r"><code># cut
 note2 &lt;- cutw(tico, from=0.6, to=0.9, output=&quot;Wave&quot;)
 
 n2.as &lt;- acoustat(note2)</code></pre>
-<p><img src="seewave_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
+<p><img src="seewave_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 <pre class="r"><code>as.data.frame(n2.as[3:8])</code></pre>
-<pre><code>##    time.P1  time.M time.P2 time.IPR freq.P1 freq.M
-## 1 0.027273 0.10909 0.21818  0.19091  3.4453 4.2636</code></pre>
+<pre><code>##      time.P1    time.M   time.P2  time.IPR  freq.P1   freq.M
+## 1 0.02727273 0.1090909 0.2181818 0.1909091 3.445312 4.263574</code></pre>
 <p> </p>
 <p>Measure statistical descriptors of frequency spectra:</p>
 <pre class="r"><code># measure power spectrum
@@ -679,26 +690,26 @@ n2.sp &lt;- meanspec(note2, plot = FALSE)
 n2.spcp &lt;- specprop(n2.sp, f = note2@samp.rate)
 
 as.data.frame(n2.spcp)</code></pre>
-<pre><code>##     mean     sd median    sem   mode    Q25    Q75    IQR   cent skewness kurtosis      sfm      sh
-## 1 4346.9 694.26 4306.6 43.391 4349.7 3789.8 4780.4 990.53 4346.9   2.2248   6.6454 0.023993 0.69682
-##     prec
-## 1 43.066</code></pre>
+<pre><code>##       mean       sd   median      sem     mode      Q25      Q75      IQR
+## 1 4346.889 694.2615 4306.641 43.39134 4349.707 3789.844 4780.371 990.5273
+##       cent skewness kurtosis      sfm        sh     prec
+## 1 4346.889 2.224789 6.645413 0.023993 0.6968186 43.06641</code></pre>
 <p> </p>
 <p>Measure the (auto)correlation between 2 amplitude envelopes (time):</p>
 <pre class="r"><code># get first note
 note1 &lt;- cutw(tico, from=0.1, to=0.4, output=&quot;Wave&quot;)
 
 ce &lt;- corenv(note1, note2, f = 22050)</code></pre>
-<p><img src="seewave_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p><img src="seewave_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <pre class="r"><code>ce[-1]</code></pre>
 <pre><code>## $rmax
-## [1] 0.76321
+## [1] 0.7632081
 ## 
 ## $p
 ## [1] 0
 ## 
 ## $t
-## [1] -0.21016</code></pre>
+## [1] -0.2101587</code></pre>
 <p> </p>
 <p>Measure the (auto)correlation between 2 frequency spectra:</p>
 <pre class="r"><code># get power spectra
@@ -706,41 +717,35 @@ n1.sp &lt;- spec(note1, plot = FALSE)
 n2.sp &lt;- spec(note2, plot = FALSE)
 
 csp &lt;- corspec(n1.sp, n2.sp, f = 22050)</code></pre>
-<p><img src="seewave_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="seewave_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
 <pre class="r"><code>csp[-1]</code></pre>
 <pre><code>## $rmax
-## [1] 0.72181
+## [1] 0.7218051
 ## 
 ## $p
 ## [1] 0
 ## 
 ## $f
-## [1] -0.34672</code></pre>
+## [1] -0.3467191</code></pre>
 <p> </p>
 <p>Measure spectrographic cross-correlation (auto-correlation between 2 spectrograms):</p>
 <pre class="r"><code>cc &lt;- covspectro(note1, note2, f = 22050, n = 11)</code></pre>
-<p><img src="seewave_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="seewave_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <pre class="r"><code>cc</code></pre>
 <pre><code>## $cov
-##  [1] 0.000000 0.122107 0.222531 0.301012 0.459118 0.435812 0.309676 0.175892 0.082271 0.018581
-## [11] 0.000000
+##  [1] 0.00000000 0.12210675 0.22253150 0.30101180 0.45911810 0.43581161
+##  [7] 0.30967577 0.17589212 0.08227063 0.01858066 0.00000000
 ## 
 ## $covmax
-## [1] 0.45912
+## [1] 0.4591181
 ## 
 ## $t
 ## [1] -0.05</code></pre>
 <p> </p>
 <div class="alert alert-info">
 <p><font size="5">Exercise</font></p>
-<p> </p>
-<p>Let’s suppose that we want to know which notes are more similar to each other in the “tico” object. Use the correlation between amplitude frames (<code>corenv()</code>), the correlation between frequency spectra (<code>corspec()</code>) and cross-correlation (<code>covspectro()</code>) to measure the similarity between notes. For simplicity let’s use only the first 3 notes (warning: clips most have exactly the same length).</p>
-<p><img src="seewave_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
-<p> </p>
 <ul>
-<li><p>Which method better reflects the similarity between the notes with respect to the one we observe in the spectrogram?</p></li>
-<li><p>Which method produces a similarity that differs more than what we observe in the spectrogram?</p></li>
-<li><p>Measure the statistical descriptors of the frequency spectra (function <code>specprop()</code>) on the 3 notes</p></li>
+<li>Measure the statistical descriptors of the frequency spectra (function <code>specprop()</code>) on the 3 notes (hint: you must cut each note first)</li>
 </ul>
 </div>
 <p> </p>
@@ -755,45 +760,27 @@ csp &lt;- corspec(n1.sp, n2.sp, f = 22050)</code></pre>
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C               LC_TIME=es_CR.UTF-8       
-##  [4] LC_COLLATE=es_ES.UTF-8     LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=es_ES.UTF-8   
-##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
-## [10] LC_TELEPHONE=C             LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=es_CR.UTF-8        LC_COLLATE=es_ES.UTF-8    
+##  [5] LC_MONETARY=es_CR.UTF-8    LC_MESSAGES=es_ES.UTF-8   
+##  [7] LC_PAPER=es_CR.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=es_CR.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] kableExtra_1.3.4   warbleR_1.1.27     NatureSounds_1.0.4 knitr_1.37         seewave_2.2.0     
-## [6] tuneR_1.3.3.1     
+## [1] seewave_2.2.0
 ## 
 ## loaded via a namespace (and not attached):
-##   [1] nlme_3.1-152          bitops_1.0-7          spatstat.sparse_2.1-0 webshot_0.5.2        
-##   [5] httr_1.4.2            Deriv_4.1.3           tools_4.1.1           bslib_0.2.5.1        
-##   [9] DT_0.19               ohun_0.1.0            vegan_2.5-7           utf8_1.2.2           
-##  [13] R6_2.5.1              rpart_4.1-15          mgcv_1.8-36           DBI_1.1.1            
-##  [17] colorspace_2.0-3      permute_0.9-5         raster_3.5-11         withr_2.5.0          
-##  [21] sp_1.4-6              gridExtra_2.3         tidyselect_1.1.1      moments_0.14         
-##  [25] bioacoustics_0.2.8    compiler_4.1.1        soundgen_2.2.0        cli_3.2.0            
-##  [29] rvest_1.0.1           formatR_1.11          xml2_1.3.2            microbenchmark_1.4-7 
-##  [33] sass_0.4.0            xaringanthemer_0.4.1  scales_1.1.1          spatstat.data_2.1-2  
-##  [37] pbapply_1.5-0         proxy_0.4-26          dtw_1.22-3            goftest_1.2-3        
-##  [41] systemfonts_1.0.2     stringr_1.4.0         digest_0.6.29         Sim.DiffProc_4.8     
-##  [45] shinyBS_0.61          spatstat.utils_2.3-0  rmarkdown_2.10        svglite_2.0.0        
-##  [49] pkgconfig_2.0.3       htmltools_0.5.2       PhenotypeSpace_0.1.0  fastmap_1.1.0        
-##  [53] highr_0.9             htmlwidgets_1.5.3     rlang_1.0.2           rstudioapi_0.13      
-##  [57] xaringan_0.22         baRulho_1.0.6         jquerylib_0.1.4       farver_2.1.0         
-##  [61] generics_0.1.0        jsonlite_1.7.2        dplyr_1.0.7           RCurl_1.98-1.6       
-##  [65] magrittr_2.0.2        Matrix_1.3-4          Rcpp_1.0.8            munsell_0.5.0        
-##  [69] fansi_1.0.2           viridis_0.6.2         abind_1.4-5           lifecycle_1.0.1      
-##  [73] terra_1.5-12          whisker_0.4           stringi_1.7.6         yaml_2.3.5           
-##  [77] MASS_7.3-54           grid_4.1.1            parallel_4.1.1        crayon_1.5.0         
-##  [81] deldir_1.0-6          lattice_0.20-44       splines_4.1.1         tensor_1.5           
-##  [85] pillar_1.7.0          rjson_0.2.21          spatstat.geom_2.3-1   fftw_1.0-6.1         
-##  [89] codetools_0.2-18      glue_1.6.2            evaluate_0.15         remotes_2.4.0        
-##  [93] png_0.1-7             vctrs_0.3.8           polyclip_1.10-0       gtable_0.3.0         
-##  [97] purrr_0.3.4           spatstat.core_2.3-2   assertthat_0.2.1      ggplot2_3.3.5        
-##  [ reached getOption(&quot;max.print&quot;) -- omitted 7 entries ]</code></pre>
+##  [1] digest_0.6.29   MASS_7.3-54     R6_2.5.1        jsonlite_1.7.2 
+##  [5] signal_0.7-7    magrittr_2.0.2  evaluate_0.15   highr_0.9      
+##  [9] stringi_1.7.6   rlang_1.0.2     cli_3.2.0       rstudioapi_0.13
+## [13] jquerylib_0.1.4 bslib_0.2.5.1   rmarkdown_2.10  tools_4.1.1    
+## [17] tuneR_1.3.3.1   stringr_1.4.0   xfun_0.30       yaml_2.3.5     
+## [21] fastmap_1.1.0   compiler_4.1.1  htmltools_0.5.2 knitr_1.37     
+## [25] sass_0.4.0</code></pre>
 </div>
 
 

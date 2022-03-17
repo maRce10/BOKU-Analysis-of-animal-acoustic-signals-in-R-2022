@@ -561,22 +561,29 @@ box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)
 
 &nbsp;
 
-- Calculate call level parameters for Spix's disc-winged bat response calls. The extended selection table can be downloaded as follows:
+- Spix's disc-winged bats (*Thyroptera tricolor*) its a Neotropical species that uses a specific call type to reply to social mates looking for their roosts. Those 'response' calls look like this: 
 
+&nbsp;
+
+<center><img src = "images/response_thyroptera.png" alt = "viewSpec" width = "640"></center>
+
+&nbsp;
+
+An extended selection table with response calls can be downloaded as follows:
 ```{r, eval = FALSE}
 
 download.file(url = "https://ndownloader.figshare.com/files/21189891", 
- destfile = "response_calls.RDS")
+ destfile = "./examples/response_calls.RDS")
 
+a <- readRDS("./examples/response_calls.RDS")
 
 ```
 
+&nbsp;
 
-- Compare the calling rate between sex and age classes (could be done visually using `boxplot()`)
+- Calculate spectrographic parameters (`spectro_analysis()`) for the Spix's disc-winged bat response calls. 
 
-- Calculate call level spectrographic parameters (from `spectro_analysis()`)
-
-- Compare the peak frequency between sex and age classes
+- SUmmar
 
 </div>
 

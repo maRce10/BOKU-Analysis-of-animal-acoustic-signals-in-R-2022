@@ -258,7 +258,6 @@ tmr
 
 - In the previous example using `timer()` the last pulse is divided into 2 detections, one very small at the beginning and another containing the rest of the pulse. Change the "ssmooth" argument until this section is detected as a single pulse.
 
-- Use the "msmooth" and "ksmooth" arguments to achieve a detection similar to that obtained with "ssmooth"
 
 </div>
 
@@ -375,7 +374,17 @@ tico6 <- zapsilw(tico5)
 
 <font size="5">Exercise</font> 
 
-- Create a new wave object with a clip from "tico" that goes from 0.1 to 1.1 s **using base R indexing/subsetting**.     
+- The function `rev()` can reverse te order of a vector:
+
+```{r}
+
+v1 <- c(1, 2, 3)
+
+rev(v1)
+
+```
+
+- Reverse the amplitude vector of 'tico' and generate a spectrogram of the reversed wave object 
 
 </div>
 
@@ -554,27 +563,8 @@ cc
 
 <font size="5">Exercise</font> 
 
-&nbsp;
 
-Let's suppose that we want to know which notes are more similar to each other in the "tico" object. Use the correlation between amplitude frames (`corenv()`), the correlation between frequency spectra (`corspec()`) and cross-correlation (`covspectro()`) to measure the similarity between notes. For simplicity let's use only the first 3 notes (warning: clips most have exactly the same length).
-
-```{r, eval = TRUE, echo = FALSE, warning = FALSE}
-
-par(mar = c(4, 4, 1, 1))
-
-spectro(tico, scale = FALSE, grid = FALSE, flim = c(2, 6), colbg = "#D9EDF7")
-
-text(x = c(0.2, 0.7, 1.1), y = c(5, 5.7, 5.5), labels = c(1, 2, 3), cex = 3)
-
-```
-
-&nbsp;
-
-- Which method better reflects the similarity between the notes with respect to the one we observe in the spectrogram?
-
-- Which method produces a similarity that differs more than what we observe in the spectrogram?
-
-- Measure the statistical descriptors of the frequency spectra (function `specprop()`) on the 3 notes
+- Measure the statistical descriptors of the frequency spectra (function `specprop()`) on the 3 notes (hint: you must cut each note first)        
 
 </div>
 
