@@ -11039,12 +11039,15 @@ Phae.long3.wav
 <img src = "images/response_thyroptera.png" alt = "viewSpec" width = "640">
 </center>
 <p> </p>
-<p>An extended selection table with response calls can be downloaded as follows:</p>
-<pre class="r"><code>download.file(url = &quot;https://ndownloader.figshare.com/files/21189891&quot;, 
- destfile = &quot;response_calls.RDS&quot;)</code></pre>
+<p>An extended selection table with response calls can be read from github as follows:</p>
+<pre class="r"><code>download.file(url = &quot;https://github.com/maRce10/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/raw/master/examples/response_calls.RDS&quot;, 
+ destfile = &quot;./examples/response_calls.RDS&quot;)
+
+response_calls &lt;- readRDS(&quot;./examples/response_calls.RDS&quot;)</code></pre>
 <p> </p>
 <ul>
-<li>Calculate spectrographic parameters (<code>spectro_analysis()</code>) for the Spix’s disc-winged bat response calls.</li>
+<li><p>Calculate spectrographic parameters (<code>spectro_analysis()</code>) for the Spix’s disc-winged bat response calls.</p></li>
+<li><p>Summarize parameters by call (<code>song_analysis()</code>). To do that you should add the column ‘start’, ‘end’ and ‘call’ to the output of <code>spectro_analysis()</code></p></li>
 </ul>
 </div>
 <p> </p>

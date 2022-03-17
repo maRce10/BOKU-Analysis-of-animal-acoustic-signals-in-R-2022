@@ -569,13 +569,30 @@ box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)
 
 &nbsp;
 
-An extended selection table with response calls can be downloaded as follows:
-```{r, eval = FALSE}
+An extended selection table with response calls can be read from github as follows:
+```{r, eval = FALSE, echo = FALSE}
 
-download.file(url = "https://ndownloader.figshare.com/files/21189891", 
+download.file(url = "https://github.com/maRce10/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/raw/master/examples/response_calls.RDS", 
  destfile = "./examples/response_calls.RDS")
 
-a <- readRDS("./examples/response_calls.RDS")
+response_calls <- readRDS("./examples/response_calls.RDS")
+
+sp_resp <- spectro_analysis(response_calls)
+
+response_calls <- cbind(response_calls, sp_resp[, -c(1, 2)])
+
+
+sp_resp_by_call <- song_analysis(response_calls, song_colm = "call")
+
+```
+
+```{r, eval = FALSE}
+
+download.file(url = "https://github.com/maRce10/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/raw/master/examples/response_calls.RDS", 
+ destfile = "./examples/response_calls.RDS")
+
+response_calls <- readRDS("./examples/response_calls.RDS")
+
 
 ```
 
@@ -583,7 +600,8 @@ a <- readRDS("./examples/response_calls.RDS")
 
 - Calculate spectrographic parameters (`spectro_analysis()`) for the Spix's disc-winged bat response calls. 
 
-- SUmmar
+- Summarize parameters by call (`song_analysis()`). To do that you should add the column 'start', 'end' and 'call' to the output of `spectro_analysis()` 
+
 
 </div>
 
