@@ -254,6 +254,9 @@ spectrograms</a>
 1. Plot acoustic spaces
 1. Write report
 
+*[Check out this guide on how to measure acoustic structure on Xeno-Canto recordings](https://marce10.github.io/BOKU-Analysis-of-animal-acoustic-signals-in-R-2022/measure_structure_green_hermit.html)*
+
+
 </div>
 
 &nbsp;
