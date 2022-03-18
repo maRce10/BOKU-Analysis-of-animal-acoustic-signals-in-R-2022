@@ -29,6 +29,8 @@ navbar:
         href: comparing_methods.html        
       - text: "Quality checks"
         href: quality_checks.html
+      - text: "Measure structure on XC recordings"
+        href: measure_structure_green_hermit.html
     - text: "Course prep"
       href: course_prep.html
     - text: "Instructor"
