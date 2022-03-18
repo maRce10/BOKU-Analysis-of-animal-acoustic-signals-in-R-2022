@@ -210,6 +210,10 @@ pca_data_md <- merge(pca_data, song_pg[, c("sound.files", "Country", "Latitude",
 
 ```
 
+&nbsp;
+
+## Assessing geographic patterns of variation
+
 We are ready to plot the acoustic space scatterplot. For this we will use the package 'ggplot2':
 
 ```{r}
@@ -229,7 +233,7 @@ ggplot(data = pca_data_md, aes(x = PC1, y = PC2, color = Country, shape = Countr
 
 &nbsp;
 
-You can also add information about their geographic location (in this case longitude) as follows:
+You can also add information about their geographic location (in this case longitude) to the plot as follows:
 
 ```{r}
 
