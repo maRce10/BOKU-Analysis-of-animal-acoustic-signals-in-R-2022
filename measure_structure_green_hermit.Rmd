@@ -217,15 +217,32 @@ We are ready to plot the acoustic space scatterplot. For this we will use the pa
 # install.packages("ggplot2")
 library(ggplot2)
 
+# install.packages("viridis")
+library(viridis)
+
 # plot
 ggplot(data = pca_data_md, aes(x = PC1, y = PC2, color = Country, shape = Country)) +
-  geom_point(size = 3)
+  geom_point(size = 3) + 
+  scale_color_viridis_d()
 
 ```
 
 &nbsp;
 
-We can even test if geographic distance is associated to acoustic distance (i.e. if individuals geographically closer produce more similar songs) using a mantel test (`mantel` from the package vegan): 
+You can also add information about their geographic location (in this case longitude) as follows:
+
+```{r}
+
+# plot
+ggplot(data = pca_data_md, aes(x = PC1, y = PC2, color = Longitude, shape = Country)) +
+  geom_point(size = 3) +
+  scale_color_viridis_c()
+
+```
+
+&nbsp;
+
+We can even test if geographic distance is associated to acoustic distance (i.e. if individuals geographically closer produce more similar songs) using a [mantel test](https://en.wikipedia.org/wiki/Mantel_test) (`mantel` function from the package vegan): 
 ```{r, warning=FALSE, message=FALSE}
 
 # create geographic and acoustic distance matrices
@@ -242,7 +259,7 @@ mantel(geo_dist, acoust_dist)
 
 &nbsp;
 
-In this example no assocation between geographic and acoustic distance was detected (p value < 0.05).
+In this example no association between geographic and acoustic distance was detected (p value > 0.05).
 
 ---
 
